@@ -1,18 +1,25 @@
 {
-   "name":"APPNAME",
-   "description":"Nothing here yet",
+   "name":"smog",
+   "description":"HTML5/Node/WebSocket MongoDB viewer",
    "version":"0.0.1",
-   "homepage":"http://github.com/wearefractal/APPNAME",
-   "repository":"git://github.com/wearefractal/APPNAME.git",
+   "homepage":"http://github.com/wearefractal/smog",
+   "repository":"git://github.com/wearefractal/smog.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
-   "main":"./index.js",
    
    "dependencies":{
-      "coffee-script":"*"
+      "coffee-script":"*",
+      "mongodb":"*",
+      "connect":"*",
+      "vein":"*",
+      "async":"*",
+      "node-uuid":"*"
    },
    "devDependencies":{
       "mocha":"*",
-      "should":"*"
+      "should":"*",
+      "uglify-js":"*",
+      "jaded":"*",
+      "less":"*"
    },
    "scripts":{
       "test":"mocha --compilers coffee:coffee-script"
@@ -23,7 +30,7 @@
    "licenses":[
       {
          "type":"MIT",
-         "url":"http://github.com/wearefractal/APPNAME/raw/master/LICENSE"
+         "url":"http://github.com/wearefractal/smog/raw/master/LICENSE"
       }
    ]
 }

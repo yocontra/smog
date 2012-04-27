@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>Smog</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <link href="css/bootstrap.css" rel="stylesheet" />
+      <link href="css/bootstrap-responsive.css" rel="stylesheet" />
+      <link href="css/jquery.noty.css" rel="stylesheet" />
+      <link href="css/noty_theme_twitter.css" rel="stylesheet" />
+      <link href="css/styles.css" rel="stylesheet" />
+      <script src="js/ext/require.js"></script>
+      <script src="js/ext/jquery.js"></script>
+      <script src="js/ext/jquery.routes.js"></script>
+      <script src="js/ext/jquery.noty.js"></script>
+      <script src="js/ext/bootstrap.js"></script>
+      <script src="https://d1fxtkz8shb9d2.cloudfront.net/sockjs-0.3.min.js"></script>
+      <script>
+         require({
+           baseUrl: ".",
+           packages: [
+             { name: "templates", location: "templates"},
+             { name: "smog", location: "js" },
+             { name: "ext", location: "js/ext" },
+           ]
+         },[
+           'smog/smog'
+         ]);
+      </script>
+   </head>
+   <body>
+      <div class="navbar navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container">
+               <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </a>
+               <a class="brand" href="#">Smog</a>
+               <div class="nav-collapse">
+                  <ul class="nav">
+                     <li>
+                        <a id="login-link" href="#/login">Login</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <div id="content">
+         </div>
+      </div>
+   </body>
+</html>

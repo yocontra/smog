@@ -1,14 +1,14 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/smog.png?branch=master)
 
 ## Information
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>smog</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>HTML5/Node/WebSocket MongoDB viewer</td>
 </tr>
 <tr>
 <td>Node Version</td>
@@ -18,13 +18,13 @@
 
 ## Usage
 
-```coffee-script
-NOTHING HERE YET
+smog is visible at http://localhost:8080
+
+```
+$ npm install smog -g
+$ smog
 ```
 
-## Examples
-
-You can view more examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
 
 ## LICENSE
 
