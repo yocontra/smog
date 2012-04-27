@@ -1,0 +1,8 @@
+ul.nav
+  li.dropdown
+    a(href="", class="dropdown-toggle", data-toggle="dropdown") Collections
+        b.caret
+    ul.dropdown-menu
+      each collection in collections
+        li
+          a(href="#/collection/#{collection}") #{collection}

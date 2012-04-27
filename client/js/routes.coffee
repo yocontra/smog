@@ -1,2 +1,3 @@
-define ["smog/login"], (login) ->
+define ["smog/login", "smog/home"], (login, home) ->
   '/login': login
+  '/home': home

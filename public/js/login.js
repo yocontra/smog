@@ -14,7 +14,8 @@
           if (err != null) {
             return notify.error("Connection error: " + err);
           } else {
-            return notify.success('Connection established!');
+            notify.success('Connection established!');
+            return window.location.hash = '#/home';
           }
         });
       });

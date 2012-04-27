@@ -12,3 +12,4 @@ define ["smog/server", "templates/login", "smog/notify"], (server, templ, notify
           notify.error "Connection error: #{err}"
         else
           notify.success 'Connection established!'
+          window.location.hash = '#/home'
