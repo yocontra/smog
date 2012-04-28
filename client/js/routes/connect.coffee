@@ -1,7 +1,7 @@
-define ["smog/server", "templates/login", "smog/notify"], (server, templ, notify) ->
+define ["smog/server", "templates/connect", "smog/notify"], (server, templ, notify) ->
   ->
     $('#content').html templ()
-    $('#login').on 'submit', (e) ->
+    $('#connect').on 'submit', (e) ->
       e.preventDefault()
 
       host = $('#host').val()
@@ -11,5 +11,4 @@ define ["smog/server", "templates/login", "smog/notify"], (server, templ, notify
         if err?
           notify.error "Connection error: #{err}"
         else
-          notify.success 'Connection established!'
           window.location.hash = '#/home'

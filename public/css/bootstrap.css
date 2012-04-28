@@ -309,7 +309,7 @@ a:hover {
   clear: both;
 }
 .container-fluid {
-  padding-left: 20px;
+  /*padding-left: 20px;*/
   padding-right: 20px;
   *zoom: 1;
 }
@@ -1396,7 +1396,7 @@ table .span24 {
   height: 14px;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   *margin-right: .3em;
@@ -1406,7 +1406,7 @@ table .span24 {
   *margin-left: 0;
 }
 .icon-white {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("glyphicons-halflings-white.png");
 }
 .icon-glass {
   background-position: 0      0;
@@ -4019,8 +4019,7 @@ blockquote.pull-right {
 }
 body {
   background-color: #121417;
-  background-image: url("../img/bg.jpg");
-  background-size: 100%;
+  background-image: url('../img/bg3.jpg');
   /*
   background-image: -moz-linear-gradient(top, #060606, #252a30);
   background-image: -ms-linear-gradient(top, #060606, #252a30);
@@ -4502,7 +4501,7 @@ footer.footer {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   border-radius: 1px;
-  border-top: solid 1px rgba(255, 255, 255, 0.3);
+  /*border-top: solid 1px rgba(255, 255, 255, 0.3);*/
   background-color: #282828;
 }
 .modal-header {

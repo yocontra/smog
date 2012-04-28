@@ -1,0 +1,13 @@
+.modal
+  form#connect
+  
+    .modal-header
+      h3 Connect to a database
+    
+    .modal-body
+      input#host.span4(type="text", placeholder="Host", value="db.vsjs.mdcn.mobi")
+      input#port.span4(type="text", placeholder="Port", value="27017")
+      input#database.span4(type="text", placeholder="Database", value="squid")
+
+    .modal-footer
+      input.btn.btn-primary(type="submit", value="Connect")

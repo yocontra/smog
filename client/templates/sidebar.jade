@@ -1,0 +1,34 @@
+.well.sidebar-nav
+  ul.nav.nav-list
+    li
+      a(href="#/home")
+        i.icon-home.icon-white
+        | Home
+    li
+      a(href="#/settings")
+        i.icon-cog.icon-white
+        | Settings
+    li.divider
+
+    li.nav-header Collections
+
+    li
+      a(href="#/new")
+        i.icon-plus.icon-white
+        | Create new
+
+    each collection in collections
+      li
+        a(href="#/collection/#{collection}") 
+          i.icon-list-alt.icon-white
+          | #{collection}
+
+    li.divider
+    li
+      a(href="#/help")
+        i.icon-flag.icon-white
+        | Help
+    li
+      a(href="#/about")
+        i.icon-heart.icon-white
+        | About

@@ -19,6 +19,8 @@
       <script src="js/ext/jquery.js"></script>
       <script src="js/ext/jquery.routes.js"></script>
       <script src="js/ext/jquery.noty.js"></script>
+      <script src="js/ext/jquery.datatables.js"></script>
+      <script src="js/ext/jquery.editable.js"></script>
       <script src="js/ext/bootstrap.js"></script>
       <script src="https://d1fxtkz8shb9d2.cloudfront.net/sockjs-0.3.min.js"></script>
       <script>
@@ -27,6 +29,7 @@
            packages: [
              { name: "templates", location: "templates"},
              { name: "smog", location: "js" },
+             { name: "routes", location: "js/routes" },
              { name: "ext", location: "js/ext" },
            ]
          },[
@@ -37,20 +40,18 @@
    <body>
       <div class="navbar navbar-fixed-top">
          <div class="navbar-inner">
-            <div class="container">
+            <div class="container-fluid">
                <a class="brand" href="#">Smog</a>
                <div id="navigation" class="nav-collapse">
-                  <ul class="nav">
-                     <li>
-                        <a id="login-link" href="#/login">Login</a>
-                     </li>
-                  </ul>
                </div>
             </div>
          </div>
       </div>
-      <div class="container">
-         <div id="content">
+
+      <div class="container-fluid">
+         <div class="row-fluid">
+            <div id="sidebar" class="span2"></div>
+            <div id="content" class="span9"></div>
          </div>
       </div>
    </body>

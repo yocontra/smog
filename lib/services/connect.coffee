@@ -8,7 +8,7 @@ module.exports = (reply, socket, host, port, database) ->
 
   socket.mongo = {}
   socket.mongo.server = new Server host, port, auto_reconnect: true
-  dbt = new Db database, socket.mongo.server, auto_reconnect: true
+  dbt = new Db database, socket.mongo.server, strict: true
 
   dbt.open (err, db) ->
     return reply err if err?

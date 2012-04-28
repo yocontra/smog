@@ -11,8 +11,7 @@
       "mongodb":"*",
       "connect":"*",
       "vein":"*",
-      "async":"*",
-      "node-uuid":"*"
+      "async":"*"
    },
    "devDependencies":{
       "mocha":"*",
