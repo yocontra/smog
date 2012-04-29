@@ -16,7 +16,7 @@
       <link href="css/ext/bootstrap-responsive.css" rel="stylesheet" />
       <link href="css/ext/dataTables.css" rel="stylesheet" />
       <link href="css/styles.css" rel="stylesheet" />
-      <script src="http://ajaxorg.github.com/ace/build/src/ace-uncompressed-noconflict.js"></script>
+      <!--<script src="http://ajaxorg.github.com/ace/build/src/ace-uncompressed-noconflict.js"></script>-->
       <script src="js/ext/require.js"></script>
       <script src="js/ext/jquery.js"></script>
       <script src="js/ext/jquery.routes.js"></script>
@@ -31,7 +31,8 @@
              { name: "templates", location: "templates"},
              { name: "smog", location: "js" },
              { name: "routes", location: "js/routes" },
-             { name: "ext", location: "js/ext" }
+             { name: "ext", location: "js/ext" },
+             { name: "ace", location: "js/ext/ace"}
            ]
          },[
            'smog/smog'
@@ -52,7 +53,7 @@
       <div class="container-fluid">
          <div class="row-fluid">
             <div id="sidebar" class="span2"></div>
-            <div id="content" class="span9"></div>
+            <div id="content" class="span10"></div>
          </div>
       </div>
    </body>

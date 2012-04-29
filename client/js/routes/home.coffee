@@ -1,12 +1,17 @@
-define ["smog/server", "templates/navigation", "templates/sidebar", "smog/notify"], (server, nav, sidebar, notify) ->
+define ["smog/server", "templates/navigation", "templates/sidebar", "templates/admin", "smog/notify"], (server, nav, sidebar, admin, notify) ->
   ->
-    server.collections (err, coll) ->
-      return notify.error "Error grabbing collections: #{err}" if err?
-
-      # Filter collection names
-      coll = (it.name.substring(it.name.indexOf('.')+1) for it in coll when it.name.indexOf('.system.') is -1)
-      coll = ("#{name.charAt(0).toUpperCase()}#{name.slice(1)}" for name in coll)
+    server.admin (err, info) ->
+      return notify.error "Error grabbing information: #{err}" if err?
 
       $('#navigation').html nav loggedIn: true
-      $('#sidebar').html sidebar collections: coll
-      $('#content').html ''
+
+      # Filter collection names
+      info.collections = (it.name.substring(it.name.indexOf('.')+1) for it in info.collections when it.name.indexOf('.system.') is -1)
+      info.collections = ("#{name.charAt(0).toUpperCase()}#{name.slice(1)}" for name in info.collections)
+      $('#sidebar').html sidebar info
+
+      # Filter admin info
+      info.serverStatus.network.bytesIn = Math.round info.serverStatus.network.bytesIn/1000/1000
+      info.serverStatus.network.bytesOut = Math.round info.serverStatus.network.bytesOut/1000/1000
+      info.serverStatus.connections.total = info.serverStatus.connections.current + info.serverStatus.connections.available
+      $('#content').html admin info

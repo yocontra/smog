@@ -76,7 +76,7 @@
         }
       };
       setup = function() {
-        $('#datagrid').dataTable({
+        return $('#datagrid').dataTable({
           sDom: "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
           sPaginationType: "bootstrap",
           sScrollX: "100%",
@@ -87,10 +87,6 @@
             sLengthMenu: "_MENU_ records per page"
           }
         });
-        $(window).bind('resize', function() {
-          return $('#datagrid').dataTable().fnAdjustColumnSizing();
-        });
-        return $('#datagrid').dataTable().fnAdjustColumnSizing();
       };
       return findAll(setup);
     };

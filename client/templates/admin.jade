@@ -1,0 +1,37 @@
+.well.row
+  .page-header: h1 Administration
+
+  .span4
+    h2 Build
+    b System: 
+    p.crop(title="#{buildInfo.sysInfo}") #{buildInfo.sysInfo}
+    b Version: 
+    p #{buildInfo.version}
+    b Bits: 
+    p #{buildInfo.bits}
+    b Debug: 
+    p #{buildInfo.debug}
+
+  .span4
+    h2 System
+    b Host: 
+    p #{serverStatus.host}
+    b Uptime: 
+    p #{serverStatus.uptime} seconds
+    b Collections: 
+    p #{collections.length}
+    b Connections: 
+    p #{serverStatus.connections.current}/#{serverStatus.connections.total}
+
+  .span4
+    h2 Performance
+    b Requests: 
+    p #{serverStatus.network.numRequests}
+    b Input: 
+    p #{serverStatus.network.bytesIn}mb
+    b Output: 
+    p #{serverStatus.network.bytesOut}mb
+    b Disk Memory:
+    p #{serverStatus.mem.mapped}mb
+    b Virtual Memory: 
+    p #{serverStatus.mem.virtual}mb

@@ -1,4 +1,4 @@
-define ->
+define ['ace/ace'], ->
   # TODO: abstract settings into object
   create: (el, mode) ->
     editor = ace.edit el

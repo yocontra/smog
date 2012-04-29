@@ -13,4 +13,7 @@ module.exports = (reply, socket, host, port, database) ->
   dbt.open (err, db) ->
     return reply err if err?
     socket.mongo.database = db
-    return reply null, true
+    db.admin (err, admin) ->
+      return reply err if err?
+      socket.mongo.admin = admin
+      return reply null, true

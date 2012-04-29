@@ -48,7 +48,4 @@ define ["smog/server", "templates/collection", "smog/notify"], (server, templ, n
         oLanguage:
             sLengthMenu: "_MENU_ records per page"
 
-      $(window).bind 'resize', -> $('#datagrid').dataTable().fnAdjustColumnSizing()
-      $('#datagrid').dataTable().fnAdjustColumnSizing()
-
     findAll setup
