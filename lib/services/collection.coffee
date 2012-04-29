@@ -33,15 +33,13 @@ tasks =
   # other
   find: (col, command, cb) ->
     return cb "Missing query" unless command.query?
-    command.query._id = getObjectID command.query._id if command.query._id?
-    col.find(command.query).toArray (err, res) ->
+    col.find(command.query, command.options).toArray (err, res) ->
       return cb err if err?
       cb null, res
 
   delete: (col, command, cb) ->
     return cb "Missing query" unless command.query?
     return cb "Missing _id" unless command.query._id?
-    command.query._id = getObjectID command.query._id
     col.remove {_id:command.query._id}, {safe:true}, (err, res) ->
       return cb err if err?
       return cb "Delete failed" unless res? and res > 0
@@ -50,12 +48,7 @@ tasks =
   update: (col, command, cb) ->
     return cb "Missing query" unless command.query?
     return cb "Missing _id" unless command.query._id?
-    command.query._id = getObjectID command.query._id
-    col.update {_id:command.query._id}, command.query, {safe:true}, (err, res) ->
-      return cb err if err?
-      console.log res
-      return cb "Update failed" unless res?  and res > 0
-      cb()
+    col.save command.query, cb
 
 
 module.exports = (reply, socket, command) ->

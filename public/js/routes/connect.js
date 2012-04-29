@@ -3,15 +3,18 @@
 
   define(["smog/server", "templates/connect", "smog/notify"], function(server, templ, notify) {
     return function() {
-      $('#content').html(templ());
-      return $('#connect').on('submit', function(e) {
+      $('#content').append(templ());
+      $('#connect-modal').modal();
+      return $('#connect-form').on('submit', function(e) {
         var database, host, port;
         e.preventDefault();
+        $('#connect-modal').modal('hide');
         host = $('#host').val();
         port = parseInt($('#port').val());
         database = $('#database').val();
         return server.connect(host, port, database, function(err, okay) {
           if (err != null) {
+            $('#connect-modal').modal('show');
             return notify.error("Connection error: " + err);
           } else {
             return window.location.hash = '#/home';

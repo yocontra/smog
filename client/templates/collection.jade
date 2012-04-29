@@ -5,14 +5,19 @@
     thead
       tr
         th ID
+        th Created
         th Document
         th Actions
     tbody
-      - if(documents)
-        each document in documents
-          tr
-            td #{document.id}
-            td.editable_textarea(id="#{document.id}") #{document.value}
-            td
-              a(href="#/delete/#{name}/#{document.id}", rel="tooltip", title="Delete")
-                i.icon-trash
+      each document in documents
+        tr(id="#{document.id}-row")
+          td(id="#{document.id}-id") #{document.id}
+          td(id="#{document.id}-created") #{document.created}
+          td(id="#{document.id}-value"): pre #{document.value}
+          td
+            a(id="#{document.id}-copy", href="#/copy/#{name}/#{document.id}", title="Copy")
+              i.icon-share-alt.icon-white
+            a(id="#{document.id}-edit", href="#/edit/#{name}/#{document.id}", title="Edit")
+              i.icon-edit.icon-white
+            a(id="#{document.id}-delete", href="#/delete/#{name}/#{document.id}", title="Delete")
+              i.icon-trash.icon-white

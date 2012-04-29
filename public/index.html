@@ -10,19 +10,20 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
 
-      <link href="css/bootstrap.css" rel="stylesheet" />
-      <link href="css/bootstrap-responsive.css" rel="stylesheet" />
-      <link href="css/jquery.noty.css" rel="stylesheet" />
-      <link href="css/noty_theme_twitter.css" rel="stylesheet" />
+      <link href="css/ext/jquery.noty.css" rel="stylesheet" />
+      <link href="css/ext/noty_theme_twitter.css" rel="stylesheet" />
+      <link href="css/ext/bootstrap.css" rel="stylesheet" />
+      <link href="css/ext/bootstrap-responsive.css" rel="stylesheet" />
+      <link href="css/ext/dataTables.css" rel="stylesheet" />
       <link href="css/styles.css" rel="stylesheet" />
+      <script src="http://ajaxorg.github.com/ace/build/src/ace-uncompressed-noconflict.js"></script>
       <script src="js/ext/require.js"></script>
       <script src="js/ext/jquery.js"></script>
       <script src="js/ext/jquery.routes.js"></script>
       <script src="js/ext/jquery.noty.js"></script>
       <script src="js/ext/jquery.datatables.js"></script>
-      <script src="js/ext/jquery.editable.js"></script>
       <script src="js/ext/bootstrap.js"></script>
-      <script src="https://d1fxtkz8shb9d2.cloudfront.net/sockjs-0.3.min.js"></script>
+      <script src="js/ext/sockjs.js"></script>
       <script>
          require({
            baseUrl: ".",
@@ -30,7 +31,7 @@
              { name: "templates", location: "templates"},
              { name: "smog", location: "js" },
              { name: "routes", location: "js/routes" },
-             { name: "ext", location: "js/ext" },
+             { name: "ext", location: "js/ext" }
            ]
          },[
            'smog/smog'

@@ -1191,6 +1191,7 @@ table {
 .table {
   width: 100%;
   margin-bottom: 18px;
+  table-layout: fixed;
 }
 .table th,
 .table td {
@@ -1198,6 +1199,8 @@ table {
   line-height: 18px;
   text-align: left;
   vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
   border-top: 1px solid #222222;
 }
 .table th {
@@ -4019,8 +4022,6 @@ blockquote.pull-right {
 }
 body {
   background-color: #121417;
-  background-image: url('../img/bg3.jpg');
-  /*
   background-image: -moz-linear-gradient(top, #060606, #252a30);
   background-image: -ms-linear-gradient(top, #060606, #252a30);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#060606), to(#252a30));
@@ -4029,7 +4030,6 @@ body {
   background-image: linear-gradient(top, #060606, #252a30);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#060606', endColorstr='#252a30', GradientType=0);
-  */
 }
 .page-header {
   border-bottom: 2px solid #33b5e5;
