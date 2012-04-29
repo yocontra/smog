@@ -10,6 +10,14 @@
         if (mode != null) {
           editor.getSession().setMode("ace/mode/" + mode);
         }
+        editor.getSession().setTabSize(2);
+        editor.getSession().setUseSoftTabs(true);
+        editor.setShowPrintMargin(false);
+        editor.renderer.setHScrollBarAlwaysVisible(false);
+        editor.renderer.setPrintMarginColumn(false);
+        editor.renderer.setShowPrintMargin(false);
+        editor.renderer.setAnimatedScroll(true);
+        editor.renderer.setShowInvisibles(false);
         return editor;
       }
     };

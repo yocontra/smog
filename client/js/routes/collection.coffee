@@ -17,7 +17,7 @@ define ["smog/server", "templates/collection", "smog/notify"], (server, templ, n
           # clean up data
           formatted = ({id:doc._id,value:doc,created:getCreated(doc._id)} for doc in docs)
           delete doc.value._id for doc in formatted
-          doc.value = JSON.stringify doc.value, null, 4 for doc in formatted
+          doc.value = JSON.stringify doc.value, null, 2 for doc in formatted
           $('#content').html templ name: name, documents: formatted
           cb()
 

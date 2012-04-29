@@ -46,7 +46,7 @@
           }
           for (_j = 0, _len1 = formatted.length; _j < _len1; _j++) {
             doc = formatted[_j];
-            doc.value = JSON.stringify(doc.value, null, 4);
+            doc.value = JSON.stringify(doc.value, null, 2);
           }
           $('#content').html(templ({
             name: name,

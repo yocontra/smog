@@ -7,15 +7,15 @@
       name = _arg.name, id = _arg.id;
       realname = name.toLowerCase();
       $('#content').append(templ({
-        id: id,
-        name: realname,
-        value: $("#" + id + "-value").text()
+        id: id
       }));
       edit = editor.create("" + id + "-copy-view", "json");
-      $('#copy-modal').modal('show');
-      $('#copy-modal').on('shown', function() {
-        return edit.resize();
-      });
+      edit.setReadOnly(true);
+      edit.renderer.setShowGutter(false);
+      edit.getSession().setUseWrapMode(true);
+      edit.getSession().setWrapLimitRange(57, 57);
+      edit.getSession().setValue($("#" + id + "-value").text());
+      $('#copy-modal').modal();
       return $('#copy-modal').on('hidden', function() {
         return $('#copy-modal').remove();
       });

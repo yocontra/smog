@@ -13,7 +13,7 @@
         tr(id="#{document.id}-row")
           td(id="#{document.id}-id") #{document.id}
           td(id="#{document.id}-created") #{document.created}
-          td(id="#{document.id}-value"): pre #{document.value}
+          td: pre(id="#{document.id}-value") #{document.value}
           td
             a(id="#{document.id}-copy", href="#/copy/#{name}/#{document.id}", title="Copy")
               i.icon-share-alt.icon-white
