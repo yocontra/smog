@@ -1,4 +1,5 @@
 define ->
+  # TODO: abstract settings into object
   create: (el, mode) ->
     editor = ace.edit el
     editor.setTheme "ace/theme/clouds_midnight"

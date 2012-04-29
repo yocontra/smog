@@ -11,6 +11,9 @@ define ["smog/notify", "smog/editor", "templates/copy"], (notify, editor, templ)
     edit.getSession().setWrapLimitRange 57, 57
     edit.getSession().setValue $("##{id}-value").text()
 
-    $('#copy-modal').modal()
+    $('#copy-modal').modal().css
+      'margin-left': -> -($(@).width() / 2)
+
     $('#copy-modal').on 'hidden', ->
+      edit.destroy()
       $('#copy-modal').remove()

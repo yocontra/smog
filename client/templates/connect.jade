@@ -1,13 +1,11 @@
-#connect-modal.modal.fade
-  form#connect-form
+#connect-modal.modal.fade.span4
+  .modal-header
+    h3 Connect
+  
+  .modal-body
+    input#host.span3(type="text", placeholder="Host", value="db.vsjs.mdcn.mobi")
+    input#port.span3(type="text", placeholder="Port", value="27017")
+    input#database.span3(type="text", placeholder="Database", value="squid")
 
-    .modal-header
-      h3 Connect
-    
-    .modal-body
-      input#host.span4(type="text", placeholder="Host", value="db.vsjs.mdcn.mobi")
-      input#port.span4(type="text", placeholder="Port", value="27017")
-      input#database.span4(type="text", placeholder="Database", value="squid")
-
-    .modal-footer
-      input.btn.btn-primary(type="submit", value="Connect")
+  .modal-footer
+    input.btn.btn-primary.span1(data-dismiss="modal", value="Connect")

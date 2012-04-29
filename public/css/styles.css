@@ -1,17 +1,35 @@
 body {
-  background-image: url('../img/bg3.jpg');
-  padding-top: 42px;
+  background-image: url('../img/bg6.jpg');
+  padding-top: 50px;
   padding-bottom: 10px;
 }
+.table {
+  table-layout: fixed;
+}
+.table th,
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*
 .sidebar-nav {
   padding: 9px 0;
 }
+*/
+
+.edit-body {
+  height: 500px;
+  max-height: 1000px;
+}
+.edit-editable {
+  height: 490px;
+}
+
 .copy-body {
-  height:355px;
+  height: 355px;
 }
 .copy-editable {
-  margin-left: 0px;
-  margin-right: 0px;
   height: 353px;
 }
 .crop {
