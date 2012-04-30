@@ -65,7 +65,11 @@
           sScrollX: "100%",
           bScrollCollapse: true,
           bStateSave: true,
-          bAutoWidth: true
+          bAutoWidth: true,
+          oLanguage: {
+            sSearch: "",
+            sLengthMenu: "_MENU_ records per page"
+          }
         });
       };
       return findAll(setup);

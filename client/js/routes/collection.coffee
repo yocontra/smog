@@ -31,5 +31,7 @@ define ["smog/server", "templates/collection", "templates/editbar", "smog/notify
         bScrollCollapse: true
         bStateSave: true
         bAutoWidth: true
-
+        oLanguage:
+          sSearch: ""
+          sLengthMenu: "_MENU_ records per page"
     findAll setup
