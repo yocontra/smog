@@ -1,9 +1,7 @@
-define ["smog/server", "templates/navigation", "templates/sidebar", "templates/admin", "smog/notify"], (server, nav, sidebar, admin, notify) ->
+define ["smog/server",  "templates/sidebar", "templates/admin", "smog/notify"], (server, sidebar, admin, notify) ->
   ->
     server.admin (err, info) ->
       return notify.error "Error grabbing information: #{err}" if err?
-
-      $('#navigation').html nav loggedIn: true
 
       # Filter collection names
       info.collections = (it.name.substring(it.name.indexOf('.')+1) for it in info.collections when it.name.indexOf('.system.') is -1)

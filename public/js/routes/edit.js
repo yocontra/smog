@@ -19,8 +19,27 @@
         }
       });
       return $('#edit-modal').on('hidden', function() {
+        var handleChange, val;
         edit.destroy();
-        return $('#edit-modal').remove();
+        $('#edit-modal').remove();
+        handleChange = function(value) {};
+        try {
+          val = JSON.parse(value);
+          val._id = this.getAttribute('id');
+          server.collection({
+            collection: realname,
+            type: 'update',
+            query: val
+          }, function(err) {
+            if (err != null) {
+              return notify.error("Error saving document: " + err);
+            }
+            return notify.success("Document saved!");
+          });
+          return value;
+        } catch (err) {
+          return notify.error("Invalid JSON: " + err);
+        }
       });
     };
   });

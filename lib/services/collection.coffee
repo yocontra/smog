@@ -10,21 +10,20 @@ tasks =
   # collection tasks
   rename: (col, command, cb) ->
     return cb "Missing query" unless command.query?
-    return cb "Missing name" unless command.query.name?
+    return cb "Missing name" unless command.query.name? and typeof command.query.name is 'string'
+    return cb "Invalid name" unless command.query.name.length > 0
     col.rename command.query.name, (err, res) ->
       return cb err if err?
       return cb "Rename failed" unless res?
       cb()
 
   empty: (col, command, cb) ->
-    return cb "Missing query" unless command.query?
     col.remove (err, res) ->
       return cb err if err?
       return cb "Empty failed" unless res?
       cb()
 
   drop: (col, command, cb) ->
-    return cb "Missing query" unless command.query?
     col.drop (err, res) ->
       return cb err if err?
       return cb "Drop failed" unless res?

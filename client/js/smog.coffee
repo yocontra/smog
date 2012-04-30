@@ -1,6 +1,5 @@
-define ["smog/server", "smog/routes", "smog/notify", "templates/navigation"], (server, routes, notify, nav) ->
+define ["smog/server", "smog/routes", "smog/notify"], (server, routes, notify) ->
 
-  $('#navigation').html nav loggedIn: false
   server.ready (services) ->
     console.log "Connected - Available services: #{services}"
     $.routes routes

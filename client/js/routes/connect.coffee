@@ -4,14 +4,14 @@ define ["smog/server", "templates/connect", "smog/notify"], (server, templ, noti
     $('#connect-modal').modal().css
       'margin-left': -> -($(@).width() / 2)
 
-    $('#connect-modal').on 'hidden', ->
+    $('#connect-button').click ->
       host = $('#host').val()
       port = parseInt $('#port').val()
       database = $('#database').val()
 
       server.connect host, port, database, (err, okay) ->
         if err?
-          $('#connect-modal').modal 'toggle'
           notify.error "Connection error: #{err}"
         else
+          $('#connect-modal').modal 'hide'
           window.location.hash = '#/home'

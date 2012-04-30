@@ -14,3 +14,18 @@ define ["smog/notify", "smog/editor", "templates/edit"], (notify, editor, templ)
     $('#edit-modal').on 'hidden', ->
       edit.destroy()
       $('#edit-modal').remove()
+
+      handleChange = (value) ->
+      try
+        val = JSON.parse value
+        val._id = @getAttribute 'id'
+        server.collection 
+          collection: realname
+          type: 'update'
+          query: val
+          (err) ->
+            return notify.error "Error saving document: #{err}" if err?
+            notify.success "Document saved!"
+        return value
+      catch err
+        notify.error "Invalid JSON: #{err}"

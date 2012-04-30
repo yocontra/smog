@@ -6,10 +6,10 @@
     return prettyDate(parseInt(id.slice(0, 8), 16) * 1000) || "Unknown";
   };
 
-  define(["smog/server", "templates/collection", "smog/notify"], function(server, templ, notify) {
+  define(["smog/server", "templates/collection", "templates/editbar", "smog/notify"], function(server, templ, editbar, notify) {
     return function(_arg) {
-      var findAll, handleChange, name, realname, setup, task;
-      name = _arg.name, task = _arg.task;
+      var findAll, name, realname, setup;
+      name = _arg.name;
       realname = name.toLowerCase();
       findAll = function(cb) {
         return server.collection({
@@ -55,37 +55,17 @@
           return cb();
         });
       };
-      handleChange = function(value) {
-        var val;
-        try {
-          val = JSON.parse(value);
-          val._id = this.getAttribute('id');
-          server.collection({
-            collection: realname,
-            type: 'update',
-            query: val
-          }, function(err) {
-            if (err != null) {
-              return notify.error("Error saving document: " + err);
-            }
-            return notify.success("Document saved!");
-          });
-          return value;
-        } catch (err) {
-          return notify.error("Invalid JSON: " + err);
-        }
-      };
       setup = function() {
+        $('#editbar').html(editbar({
+          name: name
+        }));
         return $('#datagrid').dataTable({
           sDom: "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
           sPaginationType: "bootstrap",
           sScrollX: "100%",
           bScrollCollapse: true,
           bStateSave: true,
-          bAutoWidth: true,
-          oLanguage: {
-            sLengthMenu: "_MENU_ records per page"
-          }
+          bAutoWidth: true
         });
       };
       return findAll(setup);

@@ -1,7 +1,7 @@
 getCreated = (id) -> prettyDate(parseInt(id.slice(0,8), 16)*1000) or "Unknown"
 
-define ["smog/server", "templates/collection", "smog/notify"], (server, templ, notify) ->
-  ({name, task}) ->
+define ["smog/server", "templates/collection", "templates/editbar", "smog/notify"], (server, templ, editbar, notify) ->
+  ({name}) ->
     realname = name.toLowerCase()
     
     findAll = (cb) ->
@@ -21,22 +21,8 @@ define ["smog/server", "templates/collection", "smog/notify"], (server, templ, n
           $('#content').html templ name: name, documents: formatted
           cb()
 
-    handleChange = (value) ->
-      try
-        val = JSON.parse value
-        val._id = @getAttribute 'id'
-        server.collection 
-          collection: realname
-          type: 'update'
-          query: val
-          (err) ->
-            return notify.error "Error saving document: #{err}" if err?
-            notify.success "Document saved!"
-        return value
-      catch err
-        notify.error "Invalid JSON: #{err}"
-
     setup = ->
+      $('#editbar').html editbar name: name
       # Set up datagrid
       $('#datagrid').dataTable
         sDom: "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
@@ -45,7 +31,5 @@ define ["smog/server", "templates/collection", "smog/notify"], (server, templ, n
         bScrollCollapse: true
         bStateSave: true
         bAutoWidth: true
-        oLanguage:
-            sLengthMenu: "_MENU_ records per page"
 
     findAll setup

@@ -9,16 +9,16 @@
           return -($(this).width() / 2);
         }
       });
-      return $('#connect-modal').on('hidden', function() {
+      return $('#connect-button').click(function() {
         var database, host, port;
         host = $('#host').val();
         port = parseInt($('#port').val());
         database = $('#database').val();
         return server.connect(host, port, database, function(err, okay) {
           if (err != null) {
-            $('#connect-modal').modal('toggle');
             return notify.error("Connection error: " + err);
           } else {
+            $('#connect-modal').modal('hide');
             return window.location.hash = '#/home';
           }
         });
