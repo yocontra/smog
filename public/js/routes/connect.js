@@ -5,6 +5,9 @@
     return function() {
       $('#content').append(templ());
       $('#connect-modal').modal().css({
+        'margin-top': function() {
+          return -($(this).height() / 2);
+        },
         'margin-left': function() {
           return -($(this).width() / 2);
         }

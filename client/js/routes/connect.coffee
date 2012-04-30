@@ -2,7 +2,9 @@ define ["smog/server", "templates/connect", "smog/notify"], (server, templ, noti
   ->
     $('#content').append templ()
     $('#connect-modal').modal().css
+      'margin-top': -> -($(@).height() / 2)
       'margin-left': -> -($(@).width() / 2)
+
 
     $('#connect-button').click ->
       host = $('#host').val()

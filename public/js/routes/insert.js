@@ -15,6 +15,9 @@
       edit.getSession().setWrapLimitRange(100, 100);
       edit.getSession().setValue("{\r\n\r\n}");
       $('#edit-modal').modal().css({
+        'margin-top': function() {
+          return -($(this).height() / 2);
+        },
         'margin-left': function() {
           return -($(this).width() / 2);
         }
