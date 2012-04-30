@@ -7,3 +7,4 @@ define ["smog/server", "smog/notify"], (server, notify) ->
       (err) ->
         return notify.error "Error deleting document: #{err}" if err?
         notify.success "Document deleted"
+        window.location.hash = "#/collection/#{name}"

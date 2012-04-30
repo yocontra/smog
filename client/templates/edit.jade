@@ -1,7 +1,10 @@
-#edit-modal.modal.fade.span8
+#edit-modal.modal.fade.big-modal
   .modal-header
     button.close(data-dismiss="modal") &times;
-    h3 Edit
+    h3 #{title}
   
   .modal-body.edit-body
-    .span7.edit-editable(id="#{id}-edit-view")
+    .edit-editable(id="#{id}-edit-view")
+
+  .modal-footer
+    a#edit-button.btn.btn-primary Save

@@ -1,12 +1,12 @@
 define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server, notify, editor, templ) ->
-  ({name, id}) ->
+  ({name}) ->
     realname = name.toLowerCase()
 
-    $('#content').append templ title: 'Edit', id: id
-    edit = editor.create "#{id}-edit-view", "json"
+    $('#content').append templ title: 'Insert', id: realname
+    edit = editor.create "#{realname}-edit-view", "json"
     edit.getSession().setUseWrapMode true
     edit.getSession().setWrapLimitRange 100, 100
-    edit.getSession().setValue $("##{id}-value").text()
+    edit.getSession().setValue "{\r\n\r\n}"
 
     $('#edit-modal').modal().css
       'margin-left': -> -($(@).width() / 2)
@@ -18,15 +18,14 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
     $('#edit-button').click ->
       try
         val = JSON.parse edit.getSession().getValue()
-        val._id = id
         server.collection 
           collection: realname
-          type: 'update'
+          type: 'insert'
           query: val
           (err) ->
-            return notify.error "Error saving document: #{err}" if err?
+            return notify.error "Error inserting document: #{err}" if err?
             $('#edit-modal').modal 'hide'
-            notify.success "Document saved!"
+            notify.success "Document inserted!"
             window.location.hash = "#/collection/#{name}"
       catch err
         notify.error "Invalid JSON: #{err}"

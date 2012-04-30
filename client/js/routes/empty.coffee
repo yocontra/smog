@@ -17,4 +17,4 @@ define ["smog/server", "templates/confirm", "smog/notify"], (server, templ, noti
           return notify.error "Error emptying collection: #{err}" if err?
           $('#confirm-modal').modal 'hide'
           notify.success "Collection emptied"
-          window.location.hash = '#/home'
+          window.location.hash = "#/collection/#{name}"

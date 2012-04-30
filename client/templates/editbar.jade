@@ -14,6 +14,18 @@
         | Drop
     li.divider
     li
+      a(href="#/insert/#{name}")
+        i.icon-asterisk.icon-white
+        | Insert
+    li
       a(href="#/find/#{name}")
-        i.icon-filter.icon-white
+        i.icon-search.icon-white
         | Find
+    li
+      a(href="#/mapreduce/#{name}")
+        i.icon-filter.icon-white
+        | Map Reduce
+    li
+      a(href="#/aggregate/#{name}")
+        i.icon-tasks.icon-white
+        | Aggregate

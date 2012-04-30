@@ -10,8 +10,7 @@ tasks =
   # collection tasks
   rename: (col, command, cb) ->
     return cb "Missing query" unless command.query?
-    return cb "Missing name" unless command.query.name? and typeof command.query.name is 'string'
-    return cb "Invalid name" unless command.query.name.length > 0
+    return cb "Missing name" unless command.query.name? and typeof command.query.name is 'string' and command.query.name.length > 0
     col.rename command.query.name, (err, res) ->
       return cb err if err?
       return cb "Rename failed" unless res?
@@ -31,22 +30,33 @@ tasks =
 
   # other
   find: (col, command, cb) ->
+    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
     col.find(command.query, command.options).toArray (err, res) ->
       return cb err if err?
       cb null, res
 
   delete: (col, command, cb) ->
+    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
     return cb "Missing _id" unless command.query._id?
+    command.query._id = getObjectID command.query._id if command.query._id?
     col.remove {_id:command.query._id}, {safe:true}, (err, res) ->
       return cb err if err?
       return cb "Delete failed" unless res? and res > 0
       cb()
 
+  insert: (col, command, cb) ->
+    # TODO: try objectid/non-id
+    return cb "Missing query" unless command.query?
+    command.query._id = getObjectID command.query._id if command.query._id?
+    col.insert command.query, {safe:true}, cb
+
   update: (col, command, cb) ->
+    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
     return cb "Missing _id" unless command.query._id?
+    command.query._id = getObjectID command.query._id
     col.save command.query, cb
 
 
@@ -59,5 +69,5 @@ module.exports = (reply, socket, command) ->
   return reply "Invalid command" unless tasks[command.type]?
 
   socket.mongo.database.collection command.collection, {safe:true}, (err, col) ->
-    return cb err if err?
+    return reply err if err?
     tasks[command.type] col, command, reply

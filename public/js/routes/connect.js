@@ -16,6 +16,7 @@
         database = $('#database').val();
         return server.connect(host, port, database, function(err, okay) {
           if (err != null) {
+            console.log(err);
             return notify.error("Connection error: " + err);
           } else {
             $('#connect-modal').modal('hide');

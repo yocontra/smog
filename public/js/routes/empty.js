@@ -27,7 +27,7 @@
           }
           $('#confirm-modal').modal('hide');
           notify.success("Collection emptied");
-          return window.location.hash = '#/home';
+          return window.location.hash = "#/collection/" + name;
         });
       });
     };

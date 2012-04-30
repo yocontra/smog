@@ -11,6 +11,7 @@ define ["smog/server", "templates/connect", "smog/notify"], (server, templ, noti
 
       server.connect host, port, database, (err, okay) ->
         if err?
+          console.log err
           notify.error "Connection error: #{err}"
         else
           $('#connect-modal').modal 'hide'

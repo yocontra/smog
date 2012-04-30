@@ -1,2 +1,1 @@
-define ["https://raw.github.com/wearefractal/vein/master/vein.js"], (Vein) ->
-  new Vein
+define ["ext/vein"], (Vein) -> new Vein

@@ -2,6 +2,7 @@ body {
   background-image: url('../img/bg6.jpg');
   padding-bottom: 10px;
   margin: 8px;
+  overflow: hidden;
 }
 code {
   color: black;
@@ -9,6 +10,10 @@ code {
 
 .small-modal {
   width: 330px;
+}
+.big-modal {
+  width: 900px;
+  height: 700px;
 }
 
 .table {
@@ -27,11 +32,13 @@ code {
 */
 
 .edit-body {
-  height: 500px;
+  height: 596px;
+  padding: 0px;
   max-height: 1000px;
 }
 .edit-editable {
-  height: 490px;
+  height: 596px;
+  width: 900px;
 }
 
 .copy-body {

@@ -15,7 +15,8 @@
         if (err != null) {
           return notify.error("Error deleting document: " + err);
         }
-        return notify.success("Document deleted");
+        notify.success("Document deleted");
+        return window.location.hash = "#/collection/" + name;
       });
     };
   });

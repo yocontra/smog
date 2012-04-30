@@ -3,17 +3,17 @@
 
   define(["smog/server", "smog/notify", "smog/editor", "templates/edit"], function(server, notify, editor, templ) {
     return function(_arg) {
-      var edit, id, name, realname;
-      name = _arg.name, id = _arg.id;
+      var edit, name, realname;
+      name = _arg.name;
       realname = name.toLowerCase();
       $('#content').append(templ({
-        title: 'Edit',
-        id: id
+        title: 'Insert',
+        id: realname
       }));
-      edit = editor.create("" + id + "-edit-view", "json");
+      edit = editor.create("" + realname + "-edit-view", "json");
       edit.getSession().setUseWrapMode(true);
       edit.getSession().setWrapLimitRange(100, 100);
-      edit.getSession().setValue($("#" + id + "-value").text());
+      edit.getSession().setValue("{\r\n\r\n}");
       $('#edit-modal').modal().css({
         'margin-left': function() {
           return -($(this).width() / 2);
@@ -27,17 +27,16 @@
         var val;
         try {
           val = JSON.parse(edit.getSession().getValue());
-          val._id = id;
           return server.collection({
             collection: realname,
-            type: 'update',
+            type: 'insert',
             query: val
           }, function(err) {
             if (err != null) {
-              return notify.error("Error saving document: " + err);
+              return notify.error("Error inserting document: " + err);
             }
             $('#edit-modal').modal('hide');
-            notify.success("Document saved!");
+            notify.success("Document inserted!");
             return window.location.hash = "#/collection/" + name;
           });
         } catch (err) {

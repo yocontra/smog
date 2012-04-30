@@ -7,11 +7,12 @@ define ["routes/connect",
  "routes/rename",
  "routes/drop",
  "routes/empty",
+ "routes/insert"
 
  "routes/copy",
  "routes/edit",
  "routes/delete"], 
- (connect, disconnect, home, nu, collection, rename, drop, empty, copy, edit, del) ->
+ (connect, disconnect, home, nu, collection, rename, drop, empty, insert, copy, edit, del) ->
   '/': connect
   '/connect': connect
   '/disconnect': disconnect
@@ -23,6 +24,7 @@ define ["routes/connect",
   '/rename/:name': rename
   '/drop/:name': drop
   '/empty/:name': empty
+  '/insert/:name': insert
 
   # documents
   '/copy/:name/:id': copy

@@ -16,9 +16,16 @@
 </tr>
 </table>
 
+## WARNING
+
+The document editor is NOT safe for BSON types yet. 
+Any non-JSON types will be lost on save.
+If you need to edit any objects containing BSON types it needs to be done with the raw query form.
+You may experience some issues with editing if you use a non-ObjectID type for _id.
+
 ## Usage
 
-smog is visible at http://localhost:8080
+smog is started at http://localhost:8080
 
 ```
 $ npm install smog -g
