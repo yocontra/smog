@@ -1,0 +1,23 @@
+rm -rf ./public
+mkdir -p ./public/templates
+mkdir -p ./public/js
+mkdir -p ./public/js/ext
+mkdir -p ./public/css
+mkdir -p ./public/img
+
+# Templates
+jaded -a "ext/jade" -i ./client/templates -o ./public/templates
+
+# CoffeeScript
+coffee -o ./public/js/ -c ./client/js/
+
+# TODO - process that minifies all js
+# uglifyjs -nc --unsafe -mt -o ./public/js/main.min.js ./public/js/main.js
+
+# Non-built files
+cp ./client/*.html ./public
+cp -R ./client/js/ext/* ./public/js/ext
+cp -R ./client/css/* ./public/css
+cp -R ./client/img/* ./public/img
+
+echo "Build completed!"
