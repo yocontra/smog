@@ -8,11 +8,8 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
     edit.getSession().setWrapLimitRange 100, 100
     edit.getSession().setUseWorker false
     edit.getSession().setValue $("##{id}-value").text()
-
-    $('#edit-modal').modal().css
-      'margin-top': -> -($(@).height() / 2)
-      'margin-left': -> -($(@).width() / 2)
-
+    
+    $('#edit-modal').modal()
     $('#edit-modal').on 'hidden', ->
       edit.destroy()
       $('#edit-modal').remove()

@@ -9,10 +9,7 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
     edit.getSession().setUseWorker false
     edit.getSession().setValue "{\r\n\r\n}"
 
-    $('#edit-modal').modal().css
-      'margin-top': -> -($(@).height() / 2)
-      'margin-left': -> -($(@).width() / 2)
-
+    $('#edit-modal').modal()
     $('#edit-modal').on 'hidden', ->
       edit.destroy()
       $('#edit-modal').remove()

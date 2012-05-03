@@ -4,8 +4,7 @@ define ["smog/server", "templates/confirm", "smog/notify"], (server, templ, noti
       title: 'Empty'
       text: 'Emptying a collection will remove every document it contains.\nYou will not be able to recover any data lost.'
    
-    $('#confirm-modal').modal().css
-      'margin-left': -> -($(@).width() / 2)
+    $('#confirm-modal').modal()
     $('#confirm-modal').on 'hidden', ->
       $('#confirm-modal').remove()
 

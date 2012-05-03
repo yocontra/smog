@@ -15,14 +15,7 @@
       edit.getSession().setWrapLimitRange(100, 100);
       edit.getSession().setUseWorker(false);
       edit.getSession().setValue($("#" + id + "-value").text());
-      $('#edit-modal').modal().css({
-        'margin-top': function() {
-          return -($(this).height() / 2);
-        },
-        'margin-left': function() {
-          return -($(this).width() / 2);
-        }
-      });
+      $('#edit-modal').modal();
       $('#edit-modal').on('hidden', function() {
         edit.destroy();
         return $('#edit-modal').remove();

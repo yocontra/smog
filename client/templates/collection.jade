@@ -13,10 +13,8 @@
         tr(id="#{document._id}-row")
           td(id="#{document._id}-id") #{document._id}
           td(id="#{document._id}-created") #{document.created}
-          td: code(id="#{document._id}-value") #{document.value}
+          td: pre(id="#{document._id}-value") #{document.value}
           td
-            a(id="#{document._id}-copy", href="#/copy/#{name}/#{document._id}", title="Copy")
-              i.icon-share-alt.icon-white
             a(id="#{document._id}-edit", href="#/edit/#{name}/#{document._id}", title="Edit")
               i.icon-edit.icon-white
             a(id="#{document._id}-delete", href="#/delete/#{name}/#{document._id}/#{document.nativeId}", title="Delete")

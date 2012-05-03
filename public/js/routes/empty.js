@@ -9,11 +9,7 @@
         title: 'Empty',
         text: 'Emptying a collection will remove every document it contains.\nYou will not be able to recover any data lost.'
       }));
-      $('#confirm-modal').modal().css({
-        'margin-left': function() {
-          return -($(this).width() / 2);
-        }
-      });
+      $('#confirm-modal').modal();
       $('#confirm-modal').on('hidden', function() {
         return $('#confirm-modal').remove();
       });

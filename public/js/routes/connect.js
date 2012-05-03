@@ -4,14 +4,7 @@
   define(["smog/server", "templates/connect", "smog/notify"], function(server, templ, notify) {
     return function() {
       $('#content').append(templ());
-      $('#connect-modal').modal().css({
-        'margin-top': function() {
-          return -($(this).height() / 2);
-        },
-        'margin-left': function() {
-          return -($(this).width() / 2);
-        }
-      });
+      $('#connect-modal').modal();
       return $('#connect-button').click(function() {
         var database, host, port;
         host = $('#host').val();

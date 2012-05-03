@@ -1,14 +1,17 @@
-define ["smog/server", "templates/new", "smog/notify"], (server, templ, notify) ->
+define ["smog/server", "templates/input", "smog/notify"], (server, templ, notify) ->
   ->
-    $('#content').append templ()
-    $('#new-modal').modal().css
-      'margin-left': -> -($(@).width() / 2)
-    $('#new-modal').on 'hidden', ->
-      $('#new-modal').remove()
+    $('#content').append templ
+      title: 'New'
+      button: 'Create'
+      placeholder: 'Name'
+      
+    $('#input-modal').modal()
+    $('#input-modal').on 'hidden', ->
+      $('#input-modal').remove()
 
-    $('#new-button').click ->
-      server.createCollection $('#name').val(), {}, (err) ->
+    $('#input-button').click ->
+      server.createCollection $('#input-text').val(), {}, (err) ->
         return notify.error "Error creating collection: #{err}" if err?
-        $('#new-modal').modal 'hide'
+        $('#input-modal').modal 'hide'
         notify.success "Collection created"
         window.location.hash = '#/home'

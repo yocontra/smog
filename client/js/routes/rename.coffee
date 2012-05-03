@@ -1,19 +1,22 @@
-define ["smog/server", "templates/rename", "smog/notify"], (server, templ, notify) ->
+define ["smog/server", "templates/input", "smog/notify"], (server, templ, notify) ->
   ({name}) ->
-    $('#content').append templ()
-    $('#rename-modal').modal().css
-      'margin-left': -> -($(@).width() / 2)
-    $('#rename-modal').on 'hidden', ->
-      $('#rename-modal').remove()
+    $('#content').append templ
+      title: 'Rename'
+      button: 'Rename'
+      placeholder: 'New name'
+      
+    $('#input-modal').modal()
+    $('#input-modal').on 'hidden', ->
+      $('#input-modal').remove()
 
-    $('#rename-button').click ->
+    $('#input-button').click ->
       server.collection
         collection: name.toLowerCase()
         type: 'rename'
         query: 
-          name: $('#newname').val()
+          name: $('#input-text').val()
         (err) ->
           return notify.error "Error renaming collection: #{err}" if err?
-          $('#rename-modal').modal 'hide'
+          $('#input-modal').modal 'hide'
           notify.success "Collection renamed"
           window.location.hash = '#/home'

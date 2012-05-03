@@ -31,7 +31,6 @@
             doc = docs[idx];
             doc.created = getCreated(doc._id);
           }
-          console.log(docs);
           $('#content').html(templ({
             name: name,
             documents: docs

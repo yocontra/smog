@@ -1,11 +1,8 @@
 define ["smog/server", "templates/connect", "smog/notify"], (server, templ, notify) ->
   ->
     $('#content').append templ()
-    $('#connect-modal').modal().css
-      'margin-top': -> -($(@).height() / 2)
-      'margin-left': -> -($(@).width() / 2)
-
-
+    
+    $('#connect-modal').modal()
     $('#connect-button').click ->
       host = $('#host').val()
       port = parseInt $('#port').val()

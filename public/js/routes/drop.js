@@ -9,11 +9,7 @@
         title: 'Drop',
         text: 'Dropping a collection will completely remove it from the database.\nYou will not be able to recover any data lost.'
       }));
-      $('#confirm-modal').modal().css({
-        'margin-left': function() {
-          return -($(this).width() / 2);
-        }
-      });
+      $('#confirm-modal').modal();
       $('#confirm-modal').on('hidden', function() {
         return $('#confirm-modal').remove();
       });

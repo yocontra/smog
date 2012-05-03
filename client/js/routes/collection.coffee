@@ -18,7 +18,6 @@ define ["smog/server", "templates/collection", "templates/editbar", "smog/notify
 
           # clean up data
           doc.created = getCreated(doc._id) for doc, idx in docs
-          console.log docs
           $('#content').html templ name: name, documents: docs
           cb()
 
