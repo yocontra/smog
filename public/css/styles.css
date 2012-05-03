@@ -11,6 +11,9 @@ code {
 .small-modal {
   width: 330px;
 }
+.small-modal-box {
+  width: 280px;
+}
 .big-modal {
   width: 900px;
   height: 700px;

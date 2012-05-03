@@ -5,6 +5,9 @@
    "homepage":"http://github.com/wearefractal/smog",
    "repository":"git://github.com/wearefractal/smog.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
+   "bin":{
+      "smog":"./bin/smog"
+   },
    
    "dependencies":{
       "coffee-script":"*",
