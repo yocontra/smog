@@ -3,11 +3,10 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
     realname = name.toLowerCase()
 
     $('#content').append templ title: 'Edit', id: id
-    edit = editor.create "#{id}-edit-view"
-    edit.getSession().setUseWrapMode true
-    edit.getSession().setWrapLimitRange 100, 100
-    edit.getSession().setUseWorker false
-    edit.getSession().setValue $("##{id}-value").text()
+    edit = editor.create "#{id}-edit-view",
+      wrap: 100
+      worker: false
+      value: $("##{id}-value").text()
     
     $('#edit-modal').modal()
     $('#edit-modal').on 'hidden', ->

@@ -13,7 +13,7 @@
         tr(id="#{document._id}-row")
           td(id="#{document._id}-id") #{document._id}
           td(id="#{document._id}-created") #{document.created}
-          td: pre(id="#{document._id}-value") #{document.value}
+          td: code(id="#{document._id}-value") #{document.value}
           td
             a(id="#{document._id}-edit", href="#/edit/#{name}/#{document._id}", title="Edit")
               i.icon-edit.icon-white

@@ -3,17 +3,11 @@
 
   define(['ace/ace'], function() {
     return {
-      create: function(el, mode) {
-        var editor;
-        if (mode == null) {
-          mode = "javascript";
-        }
+      create: function(el, _arg) {
+        var editor, mode, tabSize, value, worker, wrap;
+        mode = _arg.mode, worker = _arg.worker, wrap = _arg.wrap, tabSize = _arg.tabSize, value = _arg.value;
         editor = ace.edit(el);
         editor.setTheme("ace/theme/clouds_midnight");
-        if (mode != null) {
-          editor.getSession().setMode("ace/mode/" + mode);
-        }
-        editor.getSession().setTabSize(2);
         editor.getSession().setUseSoftTabs(true);
         editor.setShowPrintMargin(false);
         editor.renderer.setHScrollBarAlwaysVisible(false);
@@ -21,6 +15,25 @@
         editor.renderer.setShowPrintMargin(false);
         editor.renderer.setAnimatedScroll(true);
         editor.renderer.setShowInvisibles(false);
+        if (mode == null) {
+          mode = "javascript";
+        }
+        if (worker == null) {
+          worker = true;
+        }
+        if (value == null) {
+          value = "{\r\n\r\n}";
+        }
+        if (tabSize == null) {
+          tabSize = 2;
+        }
+        editor.getSession().setUseWorker(worker);
+        editor.getSession().setMode("ace/mode/" + mode);
+        editor.getSession().setValue(value);
+        if (wrap != null) {
+          editor.getSession().setUseWrapMode(true);
+          editor.getSession().setWrapLimitRange(wrap);
+        }
         return editor;
       }
     };
