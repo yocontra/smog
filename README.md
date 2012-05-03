@@ -26,6 +26,11 @@ $ smog
 ```
 
 
+## Pictures
+
+![Dashboard](http://i.imgur.com/cOzGD.jpg)
+![Editing](http://i.imgur.com/pNihA.png)
+
 ## LICENSE
 
 (MIT License)
