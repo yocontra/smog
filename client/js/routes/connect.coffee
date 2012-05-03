@@ -13,7 +13,7 @@ define ["smog/server", "templates/connect", "smog/notify"], (server, templ, noti
 
       server.connect host, port, database, (err, okay) ->
         if err?
-          console.log err
+          err = "Server unavailable" if typeof err is 'object' and Object.keys(err).length is 0
           notify.error "Connection error: #{err}"
         else
           $('#connect-modal').modal 'hide'

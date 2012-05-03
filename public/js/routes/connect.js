@@ -19,7 +19,9 @@
         database = $('#database').val();
         return server.connect(host, port, database, function(err, okay) {
           if (err != null) {
-            console.log(err);
+            if (typeof err === 'object' && Object.keys(err).length === 0) {
+              err = "Server unavailable";
+            }
             return notify.error("Connection error: " + err);
           } else {
             $('#connect-modal').modal('hide');

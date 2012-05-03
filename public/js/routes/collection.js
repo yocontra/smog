@@ -15,42 +15,26 @@
         return server.collection({
           collection: realname,
           type: 'find',
-          query: {},
+          query: "{}",
           options: {
             limit: 1000
           }
         }, function(err, docs) {
-          var doc, formatted, _i, _j, _len, _len1;
+          var doc, idx, _i, _len;
           if (err != null) {
             return notify.error("Error retrieving documents: " + err);
           }
           if (docs.length >= 999) {
             notify.alert("Document limit reached - only displaying first 1000");
           }
-          formatted = (function() {
-            var _i, _len, _results;
-            _results = [];
-            for (_i = 0, _len = docs.length; _i < _len; _i++) {
-              doc = docs[_i];
-              _results.push({
-                id: doc._id,
-                value: doc,
-                created: getCreated(doc._id)
-              });
-            }
-            return _results;
-          })();
-          for (_i = 0, _len = formatted.length; _i < _len; _i++) {
-            doc = formatted[_i];
-            delete doc.value._id;
+          for (idx = _i = 0, _len = docs.length; _i < _len; idx = ++_i) {
+            doc = docs[idx];
+            doc.created = getCreated(doc._id);
           }
-          for (_j = 0, _len1 = formatted.length; _j < _len1; _j++) {
-            doc = formatted[_j];
-            doc.value = JSON.stringify(doc.value, null, 2);
-          }
+          console.log(docs);
           $('#content').html(templ({
             name: name,
-            documents: formatted
+            documents: docs
           }));
           return cb();
         });

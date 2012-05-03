@@ -10,9 +10,10 @@
         title: 'Insert',
         id: realname
       }));
-      edit = editor.create("" + realname + "-edit-view", "json");
+      edit = editor.create("" + realname + "-edit-view");
       edit.getSession().setUseWrapMode(true);
       edit.getSession().setWrapLimitRange(100, 100);
+      edit.getSession().setUseWorker(false);
       edit.getSession().setValue("{\r\n\r\n}");
       $('#edit-modal').modal().css({
         'margin-top': function() {
@@ -27,13 +28,11 @@
         return $('#edit-modal').remove();
       });
       return $('#edit-button').click(function() {
-        var val;
         try {
-          val = JSON.parse(edit.getSession().getValue());
           return server.collection({
             collection: realname,
             type: 'insert',
-            query: val
+            query: edit.getSession().getValue()
           }, function(err) {
             if (err != null) {
               return notify.error("Error inserting document: " + err);

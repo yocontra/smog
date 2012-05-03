@@ -3,14 +3,17 @@
 
   define(["smog/server", "smog/notify"], function(server, notify) {
     return function(_arg) {
-      var id, name;
-      name = _arg.name, id = _arg.id;
+      var id, name, nativeId, q;
+      name = _arg.name, id = _arg.id, nativeId = _arg.nativeId;
+      if (nativeId === 'true') {
+        q = '{"_id": new ObjectID("' + id + '")}';
+      } else {
+        q = '{"_id": "' + id + '"}';
+      }
       return server.collection({
         collection: name.toLowerCase(),
         type: 'delete',
-        query: {
-          _id: id
-        }
+        query: q
       }, function(err) {
         if (err != null) {
           return notify.error("Error deleting document: " + err);

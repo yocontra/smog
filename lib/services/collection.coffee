@@ -1,11 +1,13 @@
-{ObjectID} = require 'mongodb'
-
-getObjectID = (str) ->
+ton = require "mongo-ton"
+uglify = require "uglify-js"
+prettify = (code) -> 
   try
-    return new ObjectID str
-  catch error
-    return str
-
+    ish = uglify.uglify.gen_code uglify.parser.parse("(#{code})"), beautify: true, quote_keys: true
+    return ish.substring 1, ish.length-2
+  catch err
+    console.log code
+    return "Error parsing"
+    
 tasks =
   # collection tasks
   rename: (col, command, cb) ->
@@ -30,33 +32,42 @@ tasks =
 
   # other
   find: (col, command, cb) ->
-    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
+    try
+      command.query = ton.parse command.query
+    catch err
+      return cb err.message
     col.find(command.query, command.options).toArray (err, res) ->
       return cb err if err?
-      cb null, res
+      cb null, ({_id: doc._id, nativeId: (doc._id instanceof ObjectID), value: prettify(ton.stringify(doc))} for doc in res)
 
   delete: (col, command, cb) ->
-    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
+    try
+      command.query = ton.parse command.query
+    catch err
+      return cb err.message
     return cb "Missing _id" unless command.query._id?
-    command.query._id = getObjectID command.query._id if command.query._id?
     col.remove {_id:command.query._id}, {safe:true}, (err, res) ->
       return cb err if err?
       return cb "Delete failed" unless res? and res > 0
       cb()
 
   insert: (col, command, cb) ->
-    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
-    command.query._id = getObjectID command.query._id if command.query._id?
+    try
+      command.query = ton.parse command.query
+    catch err
+      return cb err.message
     col.insert command.query, {safe:true}, cb
 
   update: (col, command, cb) ->
-    # TODO: try objectid/non-id
     return cb "Missing query" unless command.query?
+    try
+      command.query = ton.parse command.query
+    catch err
+      return cb err.message
     return cb "Missing _id" unless command.query._id?
-    command.query._id = getObjectID command.query._id
     col.save command.query, cb
 
 

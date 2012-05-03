@@ -4,11 +4,12 @@ define ["smog/notify", "smog/editor", "templates/copy"], (notify, editor, templ)
 
     $('#content').append templ id: id
 
-    edit = editor.create "#{id}-copy-view", "json"
+    edit = editor.create "#{id}-copy-view"
     edit.setReadOnly true
     edit.renderer.setShowGutter false
     edit.getSession().setUseWrapMode true
     edit.getSession().setWrapLimitRange 57, 57
+    edit.getSession().setUseWorker false
     edit.getSession().setValue $("##{id}-value").text()
 
     $('#copy-modal').modal().css

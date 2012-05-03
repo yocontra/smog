@@ -5,6 +5,9 @@
     return {
       create: function(el, mode) {
         var editor;
+        if (mode == null) {
+          mode = "javascript";
+        }
         editor = ace.edit(el);
         editor.setTheme("ace/theme/clouds_midnight");
         if (mode != null) {

@@ -1,9 +1,13 @@
 define ["smog/server", "smog/notify"], (server, notify) ->
-  ({name, id}) ->
+  ({name, id, nativeId}) ->
+    if nativeId is 'true'
+      q = '{"_id": new ObjectID("' + id + '")}'
+    else
+      q = '{"_id": "' + id + '"}'
     server.collection
       collection: name.toLowerCase()
       type: 'delete'
-      query: _id: id
+      query: q
       (err) ->
         return notify.error "Error deleting document: #{err}" if err?
         notify.success "Document deleted"

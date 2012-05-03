@@ -3,9 +3,10 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
     realname = name.toLowerCase()
 
     $('#content').append templ title: 'Insert', id: realname
-    edit = editor.create "#{realname}-edit-view", "json"
+    edit = editor.create "#{realname}-edit-view"
     edit.getSession().setUseWrapMode true
     edit.getSession().setWrapLimitRange 100, 100
+    edit.getSession().setUseWorker false
     edit.getSession().setValue "{\r\n\r\n}"
 
     $('#edit-modal').modal().css
@@ -18,11 +19,10 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
 
     $('#edit-button').click ->
       try
-        val = JSON.parse edit.getSession().getValue()
         server.collection 
           collection: realname
           type: 'insert'
-          query: val
+          query: edit.getSession().getValue()
           (err) ->
             return notify.error "Error inserting document: #{err}" if err?
             $('#edit-modal').modal 'hide'

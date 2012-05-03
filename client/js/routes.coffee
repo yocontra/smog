@@ -29,4 +29,4 @@ define ["routes/connect",
   # documents
   '/copy/:name/:id': copy
   '/edit/:name/:id': edit
-  '/delete/:name/:id': del
+  '/delete/:name/:id/:nativeId': del

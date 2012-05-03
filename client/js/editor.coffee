@@ -1,6 +1,6 @@
 define ['ace/ace'], ->
   # TODO: abstract settings into object
-  create: (el, mode) ->
+  create: (el, mode="javascript") ->
     editor = ace.edit el
     editor.setTheme "ace/theme/clouds_midnight"
     editor.getSession().setMode "ace/mode/#{mode}" if mode?

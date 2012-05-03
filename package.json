@@ -11,7 +11,9 @@
       "mongodb":"*",
       "connect":"*",
       "vein":"*",
-      "async":"*"
+      "async":"*",
+      "mongo-ton":"*",
+      "uglify-js":"*"
    },
    "devDependencies":{
       "mocha":"*",

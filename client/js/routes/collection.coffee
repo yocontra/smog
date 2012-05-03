@@ -8,17 +8,18 @@ define ["smog/server", "templates/collection", "templates/editbar", "smog/notify
       server.collection 
         collection: realname
         type: 'find'
-        query: {}
+        query: "{}"
         options: 
           limit: 1000
         (err, docs) ->
+          # TODO: return one set of docs
           return notify.error "Error retrieving documents: #{err}" if err?
           notify.alert "Document limit reached - only displaying first 1000" if docs.length >= 999
+
           # clean up data
-          formatted = ({id:doc._id,value:doc,created:getCreated(doc._id)} for doc in docs)
-          delete doc.value._id for doc in formatted
-          doc.value = JSON.stringify doc.value, null, 2 for doc in formatted
-          $('#content').html templ name: name, documents: formatted
+          doc.created = getCreated(doc._id) for doc, idx in docs
+          console.log docs
+          $('#content').html templ name: name, documents: docs
           cb()
 
     setup = ->

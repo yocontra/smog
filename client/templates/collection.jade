@@ -10,14 +10,14 @@
         th Actions
     tbody
       each document in documents
-        tr(id="#{document.id}-row")
-          td(id="#{document.id}-id") #{document.id}
-          td(id="#{document.id}-created") #{document.created}
-          td: code(id="#{document.id}-value") #{document.value}
+        tr(id="#{document._id}-row")
+          td(id="#{document._id}-id") #{document._id}
+          td(id="#{document._id}-created") #{document.created}
+          td: code(id="#{document._id}-value") #{document.value}
           td
-            a(id="#{document.id}-copy", href="#/copy/#{name}/#{document.id}", title="Copy")
+            a(id="#{document._id}-copy", href="#/copy/#{name}/#{document._id}", title="Copy")
               i.icon-share-alt.icon-white
-            a(id="#{document.id}-edit", href="#/edit/#{name}/#{document.id}", title="Edit")
+            a(id="#{document._id}-edit", href="#/edit/#{name}/#{document._id}", title="Edit")
               i.icon-edit.icon-white
-            a(id="#{document.id}-delete", href="#/delete/#{name}/#{document.id}", title="Delete")
+            a(id="#{document._id}-delete", href="#/delete/#{name}/#{document._id}/#{document.nativeId}", title="Delete")
               i.icon-trash.icon-white
