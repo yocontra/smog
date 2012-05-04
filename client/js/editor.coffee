@@ -1,5 +1,4 @@
 define ['ace/ace'], ->
-  # TODO: abstract settings into object
   create: (el, {mode, worker, wrap, tabSize, value}) ->
     editor = ace.edit el
     editor.setTheme "ace/theme/clouds_midnight"

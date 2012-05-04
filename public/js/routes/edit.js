@@ -8,7 +8,8 @@
       realname = name.toLowerCase();
       $('#content').append(templ({
         title: 'Edit',
-        id: id
+        id: id,
+        button: 'Save'
       }));
       edit = editor.create("" + id + "-edit-view", {
         wrap: 100,
@@ -21,22 +22,18 @@
         return $('#edit-modal').remove();
       });
       return $('#edit-button').click(function() {
-        try {
-          return server.collection({
-            collection: realname,
-            type: 'update',
-            query: edit.getSession().getValue()
-          }, function(err) {
-            if (err != null) {
-              return notify.error("Error saving document: " + err);
-            }
-            $('#edit-modal').modal('hide');
-            notify.success("Document saved!");
-            return window.location.hash = "#/collection/" + name;
-          });
-        } catch (err) {
-          return notify.error("Invalid JSON: " + err);
-        }
+        return server.collection({
+          collection: realname,
+          type: 'update',
+          query: edit.getSession().getValue()
+        }, function(err) {
+          if (err != null) {
+            return notify.error("Error saving document: " + err);
+          }
+          $('#edit-modal').modal('hide');
+          notify.success("Document saved!");
+          return window.location.hash = "#/collection/" + name;
+        });
       });
     };
   });

@@ -2,7 +2,11 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
   ({name}) ->
     realname = name.toLowerCase()
 
-    $('#content').append templ title: 'Insert', id: realname
+    $('#content').append templ 
+      title: 'Insert'
+      id: realname
+      button: 'Insert'
+      
     edit = editor.create "#{realname}-edit-view",
       wrap: 100
       worker: false
@@ -13,15 +17,12 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
       $('#edit-modal').remove()
 
     $('#edit-button').click ->
-      try
-        server.collection 
-          collection: realname
-          type: 'insert'
-          query: edit.getSession().getValue()
-          (err) ->
-            return notify.error "Error inserting document: #{err}" if err?
-            $('#edit-modal').modal 'hide'
-            notify.success "Document inserted!"
-            window.location.hash = "#/collection/#{name}"
-      catch err
-        notify.error "Invalid JSON: #{err}"
+      server.collection 
+        collection: realname
+        type: 'insert'
+        query: edit.getSession().getValue()
+        (err) ->
+          return notify.error "Error inserting document: #{err}" if err?
+          $('#edit-modal').modal 'hide'
+          notify.success "Document inserted!"
+          window.location.hash = "#/collection/#{name}"

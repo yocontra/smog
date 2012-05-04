@@ -9,10 +9,9 @@ define ["smog/server", "templates/collection", "templates/editbar", "smog/notify
         collection: realname
         type: 'find'
         query: "{}"
-        options: 
+        options:
           limit: 1000
         (err, docs) ->
-          # TODO: return one set of docs
           return notify.error "Error retrieving documents: #{err}" if err?
           notify.alert "Document limit reached - only displaying first 1000" if docs.length >= 999
 

@@ -39,6 +39,7 @@ tasks =
       return cb err.message
     col.find(command.query, command.options).toArray (err, res) ->
       return cb err if err?
+      return cb null, [] unless res?
       cb null, ({_id: doc._id, nativeId: (doc._id instanceof ObjectID), value: prettify(ton.stringify(doc))} for doc in res)
 
   delete: (col, command, cb) ->

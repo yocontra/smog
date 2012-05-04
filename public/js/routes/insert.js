@@ -8,7 +8,8 @@
       realname = name.toLowerCase();
       $('#content').append(templ({
         title: 'Insert',
-        id: realname
+        id: realname,
+        button: 'Insert'
       }));
       edit = editor.create("" + realname + "-edit-view", {
         wrap: 100,
@@ -20,22 +21,18 @@
         return $('#edit-modal').remove();
       });
       return $('#edit-button').click(function() {
-        try {
-          return server.collection({
-            collection: realname,
-            type: 'insert',
-            query: edit.getSession().getValue()
-          }, function(err) {
-            if (err != null) {
-              return notify.error("Error inserting document: " + err);
-            }
-            $('#edit-modal').modal('hide');
-            notify.success("Document inserted!");
-            return window.location.hash = "#/collection/" + name;
-          });
-        } catch (err) {
-          return notify.error("Invalid JSON: " + err);
-        }
+        return server.collection({
+          collection: realname,
+          type: 'insert',
+          query: edit.getSession().getValue()
+        }, function(err) {
+          if (err != null) {
+            return notify.error("Error inserting document: " + err);
+          }
+          $('#edit-modal').modal('hide');
+          notify.success("Document inserted!");
+          return window.location.hash = "#/collection/" + name;
+        });
       });
     };
   });
