@@ -15,7 +15,6 @@ code {
   width: 280px;
 }
 .big-modal {
-  width: 900px;
   height: 700px;
 }
 
@@ -25,22 +24,15 @@ code {
 }
 */
 
-.edit-body {
+.big-modal .modal-body {
   height: 596px;
   padding: 0px;
-  max-height: 1000px;
+  max-height: none;
 }
 .edit-editable {
   height: 596px;
-  width: 900px;
 }
 
-.copy-body {
-  height: 355px;
-}
-.copy-editable {
-  height: 353px;
-}
 .crop {
   overflow: hidden;
   white-space: nowrap;
