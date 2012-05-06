@@ -1,37 +1,38 @@
-.well.row
+.well
   .page-header: h1 Administration
 
-  .span3
-    h2 Build
-    b System: 
-    p.crop(title="#{buildInfo.sysInfo}") #{buildInfo.sysInfo}
-    b Version: 
-    p #{buildInfo.version}
-    b Bits: 
-    p #{buildInfo.bits}
-    b Debug: 
-    p #{buildInfo.debug}
+  .row-fluid
+    .span4
+      h2 Build
+      b System: 
+      p.crop(title="#{buildInfo.sysInfo}") #{buildInfo.sysInfo}
+      b Version: 
+      p #{buildInfo.version}
+      b Bits: 
+      p #{buildInfo.bits}
+      b Debug: 
+      p #{buildInfo.debug}
 
-  .span3
-    h2 System
-    b Host: 
-    p #{serverStatus.host}
-    b Uptime: 
-    p #{serverStatus.uptime}
-    b Collections: 
-    p #{collections.length}
-    b Connections: 
-    p #{serverStatus.connections.current}/#{serverStatus.connections.total}
+    .span4
+      h2 System
+      b Host: 
+      p #{serverStatus.host}
+      b Uptime: 
+      p #{serverStatus.uptime}
+      b Collections: 
+      p #{collections.length}
+      b Connections: 
+      p #{serverStatus.connections.current}/#{serverStatus.connections.total}
 
-  .span3
-    h2 Performance
-    b Requests: 
-    p #{serverStatus.network.numRequests}
-    b Input: 
-    p #{serverStatus.network.bytesIn}
-    b Output: 
-    p #{serverStatus.network.bytesOut}
-    b Disk Memory:
-    p #{serverStatus.mem.mapped}
-    b Virtual Memory: 
-    p #{serverStatus.mem.virtual}
+    .span4
+      h2 Performance
+      b Requests: 
+      p #{serverStatus.network.numRequests}
+      b Input: 
+      p #{serverStatus.network.bytesIn}
+      b Output: 
+      p #{serverStatus.network.bytesOut}
+      b Disk Memory:
+      p #{serverStatus.mem.mapped}
+      b Virtual Memory: 
+      p #{serverStatus.mem.virtual}

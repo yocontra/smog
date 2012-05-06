@@ -1,23 +1,24 @@
-.well.row
+.well
   .page-header: h1 #{name}
 
-  table#datagrid.table.table-striped.table-bordered(cellpadding="0", cellspacing="0", border="0")
-    thead
-      tr
-        th Id
-        th Size
-        th Created
-        th Document
-        th Actions
-    tbody
-      each document in documents
-        tr(id="#{document._id}-row")
-          td(id="#{document._id}-id") #{document._id}
-          td(id="#{document._id}-size") #{document.size}
-          td(id="#{document._id}-created") #{document.created}
-          td: code(id="#{document._id}-value") #{document.value}
-          td
-            a(id="#{document._id}-edit", href="#/edit/#{name}/#{document._id}", title="Edit")
-              i.icon-edit.icon-white
-            a(id="#{document._id}-delete", href="#/delete/#{name}/#{document._id}/#{document.nativeId}", title="Delete")
-              i.icon-trash.icon-white
+  .row-fluid
+    table#datagrid.table.table-striped.table-bordered(cellpadding="0", cellspacing="0", border="0")
+      thead
+        tr
+          th Id
+          th Size
+          th Created
+          th Document
+          th Actions
+      tbody
+        each document in documents
+          tr(id="#{document._id}-row")
+            td(id="#{document._id}-id") #{document._id}
+            td(id="#{document._id}-size") #{document.size}
+            td(id="#{document._id}-created") #{document.created}
+            td: code(id="#{document._id}-value") #{document.value}
+            td
+              a(id="#{document._id}-edit", href="#/edit/#{name}/#{document._id}", title="Edit")
+                i.icon-edit.icon-white
+              a(id="#{document._id}-delete", href="#/delete/#{name}/#{document._id}/#{document.nativeId}", title="Delete")
+                i.icon-trash.icon-white
