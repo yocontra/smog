@@ -6,7 +6,7 @@ router = require "./lib/router"
 app = connect()
 app.use connect.staticCache()
 app.use connect.static join __dirname, './public/'
-server = app.listen 8080
+server = app.listen process.env.PORT or 8080
 
 # Vein
 router.initialize server, join(__dirname, './lib/services/'), (err) ->
