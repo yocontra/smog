@@ -30,6 +30,7 @@ $ smog
 
 ![Dashboard](http://i.imgur.com/cOzGD.jpg)
 ![Editing](http://i.imgur.com/pNihA.png)
+![Map Reduce](http://i.imgur.com/cWGvx.png)
 
 ## LICENSE
 
