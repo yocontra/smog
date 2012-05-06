@@ -1,4 +1,4 @@
-define ["smog/server", "templates/confirm", "smog/notify"], (server, templ, notify) ->
+define ["smog/server", "smog/notify", "templates/confirm"], (server, notify, templ) ->
   ({name}) ->
     $('#content').append templ
       title: 'Drop'

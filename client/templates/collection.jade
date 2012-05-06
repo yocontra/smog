@@ -5,6 +5,7 @@
     thead
       tr
         th Id
+        th Size
         th Created
         th Document
         th Actions
@@ -12,6 +13,7 @@
       each document in documents
         tr(id="#{document._id}-row")
           td(id="#{document._id}-id") #{document._id}
+          td(id="#{document._id}-size") #{document.size}
           td(id="#{document._id}-created") #{document.created}
           td: code(id="#{document._id}-value") #{document.value}
           td
