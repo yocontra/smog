@@ -45,10 +45,20 @@ tasks =
   # other
   find: (col, command, cb) ->
     return cb "Missing query" unless command.query?
+    command.options ?= {}
     col.find(command.query, command.options).toArray (err, res) ->
       return cb err if err?
       return cb null, [] unless res?
       cb null, formatDocuments res
+
+  mapReduce: (col, command, cb) ->
+    return cb "Missing query" unless command.query?
+    {map, reduce} = command.query
+    return cb "Missing map" unless typeof map is 'function'
+    return cb "Missing reduce" unless typeof reduce is 'function'
+    col.mapReduce map, reduce, {out:{inline:1}}, (err, res, stat) ->
+      return cb err if err?
+      cb null, formatDocuments(res), stat
 
   delete: (col, command, cb) ->
     return cb "Missing query" unless command.query?
@@ -69,6 +79,7 @@ tasks =
 
 
 module.exports = (reply, socket, command) ->
+  console.log command
   return reply "Not connected" unless socket.mongo?
   return reply "Missing command" unless command?
   return reply "Missing type" unless command.type?

@@ -9,7 +9,9 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
       
     edit = editor.create "#{realname}-edit-view",
       wrap: 100
+      mode: "javascript"
       worker: false
+      value: "{\r\n\r\n}"
 
     $('#edit-modal').modal()
     $('#edit-modal').on 'hidden', ->

@@ -13,7 +13,9 @@
       }));
       edit = editor.create("" + realname + "-edit-view", {
         wrap: 100,
-        worker: false
+        mode: "javascript",
+        worker: false,
+        value: "{\r\n\r\n}"
       });
       $('#edit-modal').modal();
       $('#edit-modal').on('hidden', function() {

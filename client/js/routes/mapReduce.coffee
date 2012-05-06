@@ -3,15 +3,29 @@ define ["smog/server", "smog/util", "smog/notify", "smog/editor", "templates/edi
     realname = name.toLowerCase()
 
     $('#content').append templ 
-      title: 'Find'
+      title: 'Map Reduce'
       id: realname
       button: 'Execute'
       
     edit = editor.create "#{realname}-edit-view",
       mode: "javascript"
-      wrap: 100
       worker: false
-      value: "{\r\n\r\n}"
+      wrap: 100
+      value: """
+        //This is a simple map/reduce that counts documents by name
+        {
+          map: function () {
+            emit(this.name, {count: 1});
+          },
+          reduce: function (key, values) {
+            var result = 0;
+            values.forEach(function (value) {
+              result += value.count;
+            });
+            return {count: result};
+          }
+        }
+        """
     
     $('#edit-modal').modal()
     $('#edit-modal').on 'hidden', ->
@@ -22,11 +36,12 @@ define ["smog/server", "smog/util", "smog/notify", "smog/editor", "templates/edi
       $('#edit-modal').modal 'hide'
       server.collection 
         collection: realname
-        type: 'find'
+        type: 'mapReduce'
         query: edit.getSession().getValue()
-        (err, docs) ->
+        (err, docs, stat) ->
           return notify.error "Error retrieving documents: #{err}" if err?
           
+          console.log docs, stat
           $('#content').html collection 
             name: name
             documents: util.filterDocuments docs

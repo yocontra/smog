@@ -8,6 +8,7 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
       button: 'Save'
 
     edit = editor.create "#{id}-edit-view",
+      mode: "javascript"
       wrap: 100
       worker: false
       value: $("##{id}-value").text()

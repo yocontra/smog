@@ -21,7 +21,11 @@ define ->
     return "#{Math.floor(size.toFixed(1))} #{units[i]}"
 
   getCreated: (id) ->
-    prettyDate(parseInt(id.slice(0,8), 16)*1000) or "Unknown"
+    de = "Unknown"
+    return de unless id?
+    try
+      return prettyDate(parseInt(id.slice(0,8), 16)*1000) or de
+    return de
 
   prettySeconds: (secs) ->
     days = Math.floor secs / 86400

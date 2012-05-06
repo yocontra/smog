@@ -7,15 +7,15 @@
       name = _arg.name;
       realname = name.toLowerCase();
       $('#content').append(templ({
-        title: 'Find',
+        title: 'Map Reduce',
         id: realname,
         button: 'Execute'
       }));
       edit = editor.create("" + realname + "-edit-view", {
         mode: "javascript",
-        wrap: 100,
         worker: false,
-        value: "{\r\n\r\n}"
+        wrap: 100,
+        value: "//This is a simple map/reduce that counts documents by name\n{\n  map: function () {\n    emit(this.name, {count: 1});\n  },\n  reduce: function (key, values) {\n    var result = 0;\n    values.forEach(function (value) {\n      result += value.count;\n    });\n    return {count: result};\n  }\n}"
       });
       $('#edit-modal').modal();
       $('#edit-modal').on('hidden', function() {
@@ -26,12 +26,13 @@
         $('#edit-modal').modal('hide');
         return server.collection({
           collection: realname,
-          type: 'find',
+          type: 'mapReduce',
           query: edit.getSession().getValue()
-        }, function(err, docs) {
+        }, function(err, docs, stat) {
           if (err != null) {
             return notify.error("Error retrieving documents: " + err);
           }
+          console.log(docs, stat);
           return $('#content').html(collection({
             name: name,
             documents: util.filterDocuments(docs)
