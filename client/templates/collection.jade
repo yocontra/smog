@@ -18,7 +18,7 @@
               td(id="#{document._id}-size") #{document.size}
               td(id="#{document._id}-created") #{document.created}
               td: pre.crop(id="#{document._id}-value") #{document.value}
-              td
+              td(id="#{document._id}-actions")
                 a(id="#{document._id}-edit", href="#/edit/#{name}/#{document._id}", title="Edit")
                   i.icon-edit.icon-white
                 a(id="#{document._id}-delete", href="#/delete/#{name}/#{document._id}/#{document.nativeId}", title="Delete")
