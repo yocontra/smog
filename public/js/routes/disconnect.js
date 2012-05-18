@@ -3,7 +3,7 @@
 
   define(["smog/server", "smog/notify"], function(server, notify) {
     return function() {
-      return server.disconnect(function(err, res) {
+      return server.disconnect(function(err) {
         if (err != null) {
           return notify.error("Error disconnecting: " + err);
         }

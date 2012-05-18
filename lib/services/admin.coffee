@@ -1,30 +1,30 @@
-module.exports = (reply, socket) ->
-  return reply "Not connected" unless socket.mongo?
+module.exports = (res, socket) ->
+  return res.send "Not connected" unless res.socket.mongo?
 
   out = {}
-  db = socket.mongo.database
-  admin = socket.mongo.admin
+  db = res.socket.mongo.database
+  admin = res.socket.mongo.admin
 
-  db.collectionNames (err, res) ->
-    return reply err if err?
-    out.collections = res
+  db.collectionNames (err, r) ->
+    return res.send err if err?
+    out.collections = r
 
-    admin.serverStatus (err, res) ->
-      return reply err if err?
-      out.serverStatus = res
+    admin.serverStatus (err, r) ->
+      return res.send err if err?
+      out.serverStatus = r
 
-      admin.buildInfo (err, res) ->
-        return reply err if err?
-        out.buildInfo = res
+      admin.buildInfo (err, r) ->
+        return res.send err if err?
+        out.buildInfo = r
 
-        admin.profilingLevel (err, res) ->
-          return reply err if err?
-          out.profilingLevel = res
+        admin.profilingLevel (err, r) ->
+          return res.send err if err?
+          out.profilingLevel = r
 
-          admin.profilingInfo (err, res) ->
-            return reply err if err?
-            out.profilingInfo = res
+          admin.profilingInfo (err, r) ->
+            return res.send err if err?
+            out.profilingInfo = r
 
-            admin.replSetGetStatus (err, res) ->
-              out.replSetGetStatus = res unless err?
-              return reply null, out
+            admin.replSetGetStatus (err, r) ->
+              out.replSetGetStatus = r unless err?
+              return res.send null, out

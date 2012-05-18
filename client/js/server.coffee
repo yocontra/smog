@@ -1,1 +1,1 @@
-define ["ext/vein"], (Vein) -> new Vein
+define ["Vein"], (Vein) -> new Vein

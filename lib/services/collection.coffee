@@ -78,19 +78,19 @@ tasks =
     col.save command.query, cb
 
 
-module.exports = (reply, socket, command) ->
-  console.log command
-  return reply "Not connected" unless socket.mongo?
-  return reply "Missing command" unless command?
-  return reply "Missing type" unless command.type?
-  return reply "Missing collection" unless command.collection?
-  return reply "Invalid command" unless tasks[command.type]?
+module.exports = (res, command) ->
+  return unless res.socket?
+  return res.send "Not connected" unless res.socket.mongo?
+  return res.send "Missing command" unless command?
+  return res.send "Missing type" unless command.type?
+  return res.send "Missing collection" unless command.collection?
+  return res.send "Invalid command" unless tasks[command.type]?
 
-  socket.mongo.database.collection command.collection, {safe:true}, (err, col) ->
-    return reply err if err?
+  res.socket.mongo.database.collection command.collection, {safe:true}, (err, col) ->
+    return res.send err if err?
     if command.query? and typeof command.query is 'string'
       try
         command.query = ton.parse command.query
       catch err
-        return reply err.message
-    tasks[command.type] col, command, reply
+        return res.send err.message
+    tasks[command.type] col, command, res.send

@@ -13,7 +13,7 @@
       "coffee-script":"*",
       "mongodb":"*",
       "connect":"*",
-      "vein":"*",
+      "vein":"0.2.1",
       "async":"*",
       "mongo-ton":"*",
       "uglify-js":"*"

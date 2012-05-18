@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify"], (server, notify) ->
   ->
-    server.disconnect (err, res) ->
+    server.disconnect (err) ->
       return notify.error "Error disconnecting: #{err}" if err?
       window.location = '/'

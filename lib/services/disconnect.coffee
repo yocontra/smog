@@ -1,7 +1,9 @@
 {Server, Db} = require 'mongodb'
 
-module.exports = (reply, socket, host, port, database) ->
-  return reply "Not connected" unless socket.mongo?
+module.exports = (res, host, port, database) ->
+  return es.send "Not connected" unless res.socket.mongo?
 
-  socket.mongo.database.close true, reply
-  delete socket.mongo
+  res.socket.mongo.database.close true, (err) ->
+    return res.send err if err?
+    res.send()
+    delete res.socket.mongo
