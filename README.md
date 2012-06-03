@@ -25,12 +25,18 @@ $ npm install smog -g
 $ smog
 ```
 
+## Desktop UI
+
+Desktop UI is still in testing but you can try it at your own risk. Linux only (for now)
+
+```
+$ smog -u
+```
 
 ## Pictures
 
-![Dashboard](http://i.imgur.com/cOzGD.jpg)
-![Editing](http://i.imgur.com/pNihA.png)
-![Map Reduce](http://i.imgur.com/cWGvx.png)
+![Administration](http://i.minus.com/iD9QIHyUZGYEg.png)
+![Editing](http://i.minus.com/i8JPNXYRWrxTk.png)
 
 ## LICENSE
 
