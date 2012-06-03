@@ -1,5 +1,3 @@
-![status](https://secure.travis-ci.org/wearefractal/smog.png?branch=master)
-
 ## Information
 
 <table>
