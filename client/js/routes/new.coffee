@@ -11,7 +11,7 @@ define ["smog/server", "templates/input", "smog/notify"], (server, templ, notify
 
     $('#input-button').click ->
       server.createCollection $('#input-text').val(), {}, (err) ->
-        return notify.error "Error creating collection: #{err}" if err?
+        return notify.error "Error creating collection: #{err.err or err}" if err?
         $('#input-modal').modal 'hide'
         notify.success "Collection created"
         window.location.hash = '#/home'

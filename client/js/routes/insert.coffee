@@ -2,29 +2,24 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
   ({name}) ->
     realname = name.toLowerCase()
 
-    $('#content').append templ 
+    $('#content').html templ 
       title: 'Insert'
       id: realname
       button: 'Insert'
       
     edit = editor.create "#{realname}-edit-view",
-      wrap: 100
       mode: "javascript"
+      wrap: 100
       worker: false
       value: "{\r\n\r\n}"
-
-    $('#edit-modal').modal()
-    $('#edit-modal').on 'hidden', ->
-      edit.destroy()
-      $('#edit-modal').remove()
 
     $('#edit-button').click ->
       server.collection 
         collection: realname
         type: 'insert'
-        query: edit.getSession().getValue()
+        query: edit.getText()
         (err) ->
-          return notify.error "Error inserting document: #{err}" if err?
-          $('#edit-modal').modal 'hide'
+          return notify.error "Error inserting document: #{err.err or err}" if err?
+          edit.destroy()
           notify.success "Document inserted!"
           window.location.hash = "#/collection/#{name}"

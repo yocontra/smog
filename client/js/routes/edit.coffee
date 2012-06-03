@@ -2,8 +2,10 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
   ({name, id}) ->
     realname = name.toLowerCase()
 
-    $('#content').append templ 
-      title: 'Edit'
+    val = $("##{id}-value").text()
+
+    $('#content').html templ 
+      title: "Editing #{id}"
       id: id
       button: 'Save'
 
@@ -11,20 +13,15 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
       mode: "javascript"
       wrap: 100
       worker: false
-      value: $("##{id}-value").text()
-    
-    $('#edit-modal').modal()
-    $('#edit-modal').on 'hidden', ->
-      edit.destroy()
-      $('#edit-modal').remove()
+      value: val
 
     $('#edit-button').click ->
       server.collection 
         collection: realname
         type: 'update'
-        query: edit.getSession().getValue()
+        query: edit.getText()
         (err) ->
-          return notify.error "Error saving document: #{err}" if err?
-          $('#edit-modal').modal 'hide'
+          return notify.error "Error saving document: #{err.err or err}" if err?
+          edit.destroy()
           notify.success "Document saved!"
           window.location.hash = "#/collection/#{name}"

@@ -1,4 +1,4 @@
-define ['ace/ace'], ->
+define ['ace/ace'], (ace) ->
   create: (el, {theme, mode, worker, wrap, tabSize, value, invisibles}) ->
     editor = ace.edit el
     editor.getSession().setUseSoftTabs true
@@ -22,4 +22,7 @@ define ['ace/ace'], ->
       editor.getSession().setUseWrapMode true
       editor.getSession().setWrapLimitRange wrap
     editor.renderer.setShowInvisibles invisibles
+
+    # augment
+    editor.getText = -> editor.getSession().getValue()
     return editor

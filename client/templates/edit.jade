@@ -1,10 +1,9 @@
-#edit-modal.modal.fade.span6.big-modal
-  .modal-header
-    button.close(data-dismiss="modal") &times;
-    h3 #{title}
-  
-  .modal-body
-    .span8.edit-editable(id="#{id}-edit-view")
+.well
+  .page-header: h1 #{title}
 
-  .modal-footer
-    a#edit-button.btn.btn-primary #{button}
+  .row-fluid
+    .row.edit-container
+      .span12.edit-editable(id="#{id}-edit-view")
+
+    .row-fluid
+      a#edit-button.btn.btn-primary #{button}

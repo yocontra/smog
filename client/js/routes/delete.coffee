@@ -9,6 +9,6 @@ define ["smog/server", "smog/notify"], (server, notify) ->
       type: 'delete'
       query: q
       (err) ->
-        return notify.error "Error deleting document: #{err}" if err?
+        return notify.error "Error deleting document: #{err.err or err}" if err?
         notify.success "Document deleted"
         window.location.hash = "#/collection/#{name}"

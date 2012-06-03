@@ -16,7 +16,7 @@ define ["smog/server", "templates/input", "smog/notify"], (server, templ, notify
         query: 
           name: $('#input-text').val()
         (err) ->
-          return notify.error "Error renaming collection: #{err}" if err?
+          return notify.error "Error renaming collection: #{err.err or err}" if err?
           $('#input-modal').modal 'hide'
           notify.success "Collection renamed"
           window.location.hash = '#/home'

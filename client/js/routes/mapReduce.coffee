@@ -2,7 +2,7 @@ define ["smog/server", "smog/util", "smog/notify", "smog/editor", "templates/edi
   ({name}) ->
     realname = name.toLowerCase()
 
-    $('#content').append templ 
+    $('#content').html templ 
       title: 'Map Reduce'
       id: realname
       button: 'Execute'
@@ -26,22 +26,15 @@ define ["smog/server", "smog/util", "smog/notify", "smog/editor", "templates/edi
           }
         }
         """
-    
-    $('#edit-modal').modal()
-    $('#edit-modal').on 'hidden', ->
-      edit.destroy()
-      $('#edit-modal').remove()
 
     $('#edit-button').click ->
-      $('#edit-modal').modal 'hide'
       server.collection 
         collection: realname
         type: 'mapReduce'
-        query: edit.getSession().getValue()
+        query: edit.getText()
         (err, docs, stat) ->
-          return notify.error "Error retrieving documents: #{err}" if err?
-          
-          console.log docs, stat
+          return notify.error "Error retrieving documents: #{err.err or err}" if err?
+          edit.destroy()
           $('#content').html collection 
             name: name
             documents: util.filterDocuments docs

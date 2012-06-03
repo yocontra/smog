@@ -1,7 +1,7 @@
 define ["smog/server", "smog/util", "smog/notify", "templates/sidebar", "templates/admin"], (server, util, notify, sidebar, admin) ->
   ->
     server.admin (err, info) ->
-      return notify.error "Error grabbing information: #{err}" if err?
+      return notify.error "Error grabbing information: #{err.err or err}" if err?
 
       # Filter collection names
       info.collections = util.filterCollections info.collections

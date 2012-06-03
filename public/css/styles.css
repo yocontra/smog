@@ -1,11 +1,22 @@
 body {
-  background-image: url('../img/bg6.jpg');
+  background-color: #0b2c46;
+  background: url('../img/granite_bg.jpg');
   padding-bottom: 10px;
   margin: 8px;
-  overflow: hidden;
 }
 code {
   color: black;
+}
+
+.connect-container {
+  background: #222;
+  padding: 20px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 0 auto;
+  float: none;
 }
 
 .small-modal {
@@ -24,13 +35,12 @@ code {
 }
 */
 
-.big-modal .modal-body {
-  height: 596px;
-  padding: 0px;
-  max-height: none;
+.edit-container {
+  height: 500px;
 }
+
 .edit-editable {
-  height: 596px;
+  height: 490px;
 }
 
 .crop {
