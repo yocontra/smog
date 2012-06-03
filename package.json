@@ -1,40 +1,41 @@
 {
-   "name":"smog",
-   "description":"HTML5/Node/WebSocket MongoDB viewer",
-   "version":"0.0.5",
-   "homepage":"http://github.com/wearefractal/smog",
-   "repository":"git://github.com/wearefractal/smog.git",
-   "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
-   "bin":{
-      "smog":"./bin/smog"
-   },
-   
-   "dependencies":{
-      "coffee-script":"*",
-      "mongodb":"*",
-      "connect":"*",
-      "vein":"*",
-      "async":"*",
-      "mongo-ton":"*",
-      "uglify-js":"*"
-   },
-   "devDependencies":{
-      "mocha":"*",
-      "should":"*",
-      "uglify-js":"*",
-      "jaded":"*",
-      "less":"*"
-   },
-   "scripts":{
-      "test":"mocha --compilers coffee:coffee-script"
-   },
-   "engines":{
-      "node":">= 0.4.0"
-   },
-   "licenses":[
-      {
-         "type":"MIT",
-         "url":"http://github.com/wearefractal/smog/raw/master/LICENSE"
-      }
-   ]
+  "name": "smog",
+  "description": "HTML5/Node/WebSocket MongoDB viewer",
+  "version": "0.0.5-1",
+  "homepage": "http://github.com/wearefractal/smog",
+  "repository": "git://github.com/wearefractal/smog.git",
+  "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
+  "bin": {
+    "smog": "./bin/smog"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "mongodb": "*",
+    "connect": "*",
+    "vein": "*",
+    "async": "*",
+    "mongo-ton": "*",
+    "uglify-js": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "uglify-js": "*",
+    "jaded": "*",
+    "less": "*"
+  },
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script",
+    "start": "start.coffee"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/wearefractal/smog/raw/master/LICENSE"
+    }
+  ],
+  "subdomain": "smog"
 }
