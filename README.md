@@ -36,6 +36,31 @@ $ smog -u
 ![Administration](http://i.minus.com/iD9QIHyUZGYEg.png)
 ![Editing](http://i.minus.com/i8JPNXYRWrxTk.png)
 
+## TODO
+
+##### Administration
+
+* Ability to shutdown/restart server
+* Streaming CPU/bandwidth usage graphs
+* Streaming Geo heatmap graph
+* Full replica set management
+* 
+
+##### Editor
+
+* Command bar for executing raw commands (with auto-complete/syntax highlighting)
+* Support for arbitrary languages (coffee-script, clojurescript, etc.)
+* Allow changing of themes/syntax highlighters
+* Runtime syntax checks of all languages
+
+##### Document Listing
+
+* Sort by X
+* Better document preview
+* Streaming results (when a new document is added that matches the query it should be added)
+* Inline editor
+* Graphs
+
 ## LICENSE
 
 (MIT License)
