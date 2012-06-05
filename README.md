@@ -10,20 +10,27 @@
 </tr>
 <tr>
 <td>Node Version</td>
-<td>>= 0.4</td>
+<td>>= 0.6</td>
 </tr>
 </table>
 
 ## Usage
 
-smog is started at http://localhost:8080
+Install smog by running ```npm install smog -g```
+
+### Local
+
+smog will run on port 8080 by default (add PORT=X at the front of the command to change this)
 
 ```
-$ npm install smog -g
 $ smog
 ```
 
-## Desktop UI
+### Web Client
+
+Don't want to trouble yourself with installing smog? Visit http://smog.jit.su/ to try it out
+
+### Desktop UI
 
 Desktop UI is still in testing but you can try it at your own risk. Linux only (for now)
 
@@ -44,7 +51,6 @@ $ smog -u
 * Streaming CPU/bandwidth usage graphs
 * Streaming Geo heatmap graph
 * Full replica set management
-* 
 
 ##### Editor
 
