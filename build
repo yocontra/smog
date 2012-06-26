@@ -6,10 +6,10 @@ mkdir -p ./public/css
 mkdir -p ./public/img
 
 # Templates
-jaded -a "ext/jade" -i ./client/templates -o ./public/templates
+node_modules/.bin/jaded -a "ext/jade" -i ./client/templates -o ./public/templates
 
 # CoffeeScript
-coffee -o ./public/js/ -c ./client/js/
+node_modules/.bin/coffee -o ./public/js/ -c ./client/js/
 
 # TODO - process that minifies all js
 # uglifyjs -nc --unsafe -mt -o ./public/js/main.min.js ./public/js/main.js
