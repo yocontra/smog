@@ -4,5 +4,5 @@ define ["smog/server", "smog/routes", "smog/notify"], (server, routes, notify) -
     console.log "Connected - Available services: #{services}"
     $.routes routes
 
-  server.close ->
-    notify.error 'Connection lost - reload to re-establish'
+  #server.close ->
+  #  notify.error 'Connection lost - reload to re-establish'

@@ -2,12 +2,9 @@
 (function() {
 
   define(["smog/server", "smog/routes", "smog/notify"], function(server, routes, notify) {
-    server.ready(function(services) {
+    return server.ready(function(services) {
       console.log("Connected - Available services: " + services);
       return $.routes(routes);
-    });
-    return server.close(function() {
-      return notify.error('Connection lost - reload to re-establish');
     });
   });
 
