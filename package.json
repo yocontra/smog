@@ -21,7 +21,7 @@
   "optionalDependencies": {
     "pane": "*"
   },
-  "devDependenciez": {
+  "devDependencies": {
     "mocha": "*",
     "should": "*",
     "uglify-js": "*",
