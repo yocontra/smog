@@ -11,7 +11,7 @@ app.use connect.static join __dirname, './public/'
 server = app.listen port
 
 # Vein
-vein = new Vein server
+vein = Vein.createServer server: server
 vein.addFolder join __dirname, './lib/services/'
 
 console.log "Server started on #{port}"

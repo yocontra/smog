@@ -66,6 +66,7 @@ $ smog -u
 * Streaming results (when a new document is added that matches the query it should be added)
 * Inline editor
 * Graphs
+* Pagination
 
 ## LICENSE
 
