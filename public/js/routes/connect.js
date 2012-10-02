@@ -8,11 +8,9 @@
         backdrop: false
       });
       return $('#connect-button').click(function() {
-        var database, host, port;
+        var host;
         host = $('#host').val();
-        port = parseInt($('#port').val());
-        database = $('#database').val();
-        return server.connect(host, port, database, function(err, okay) {
+        return server.connect(host, function(err, okay) {
           if (err != null) {
             if (typeof err === 'object' && Object.keys(err).length === 0) {
               err = "Server unavailable";

@@ -1,9 +1,9 @@
 module.exports = (cb, socket) ->
-  return cb "Not connected" unless cb.socket.mongo?
+  return cb "Not connected" unless cb.socket.mongo.database?
 
   out = {}
   db = cb.socket.mongo.database
-  admin = cb.socket.mongo.admin
+  admin = db.admin
 
   db.collectionNames (err, r) ->
     return cb err if err?

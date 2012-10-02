@@ -63,14 +63,14 @@ tasks =
   delete: (col, command, cb) ->
     return cb "Missing query" unless command.query?
     return cb "Missing _id" unless command.query._id?
-    col.remove {_id:command.query._id}, {safe:true}, (err, res) ->
+    col.remove {_id:command.query._id}, (err, res) ->
       return cb err if err?
       return cb "Delete failed" unless res? and res > 0
       cb()
 
   insert: (col, command, cb) ->
     return cb "Missing query" unless command.query?
-    col.insert command.query, {safe:true}, cb
+    col.insert command.query, cb
 
   update: (col, command, cb) ->
     return cb "Missing query" unless command.query?
@@ -86,11 +86,10 @@ module.exports = (cb, command) ->
   return cb "Missing collection" unless command.collection?
   return cb "Invalid command" unless tasks[command.type]?
 
-  cb.socket.mongo.database.collection command.collection, {safe:true}, (err, col) ->
-    return cb err if err?
-    if command.query? and typeof command.query is 'string'
-      try
-        command.query = ton.parse command.query
-      catch err
-        return cb err.message
-    tasks[command.type] col, command, cb
+  col = cb.socket.mongo.database.collection command.collection
+  if command.query? and typeof command.query is 'string'
+    try
+      command.query = ton.parse command.query
+    catch err
+      return cb err.message
+  tasks[command.type] col, command, cb

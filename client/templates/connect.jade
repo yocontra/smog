@@ -3,9 +3,7 @@
     h3 Connect
   
   .modal-body
-    input#host.small-modal-box(type="text", placeholder="Host", value="localhost")
-    input#port.small-modal-box(type="text", placeholder="Port", value="27017")
-    input#database.small-modal-box(type="text", placeholder="Database", value="test")
+    input#host.small-modal-box(type="text", placeholder="Host", value="mongodb://localhost:27017/test?auto_reconnect")
 
   .modal-footer
     a#connect-button.btn.btn-primary Connect
