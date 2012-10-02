@@ -1,5 +1,3 @@
-{Server, Db} = require 'mongodb'
-
 module.exports = (cb, host, port, database) ->
   return cb "Not connected" unless cb.socket.mongo?
 

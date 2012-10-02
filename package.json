@@ -1,7 +1,7 @@
 {
   "name": "smog",
   "description": "HTML5/Node/WebSocket MongoDB viewer",
-  "version": "0.0.9",
+  "version": "0.0.9-3",
   "homepage": "http://github.com/wearefractal/smog",
   "repository": "git://github.com/wearefractal/smog.git",
   "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -15,12 +15,13 @@
     "vein": "0.4.5",
     "async": "*",
     "mongo-ton": "*",
-    "uglify-js": "*"
+    "uglify-js": "*",
+    "mongodb": "*"
   },
   "optionalDependencies": {
     "pane": "*"
   },
-  "devDependencies": {
+  "devDependenciez": {
     "mocha": "*",
     "should": "*",
     "uglify-js": "*",
