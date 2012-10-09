@@ -15,7 +15,7 @@
       });
       return $('#confirm-button').click(function() {
         return server.collection({
-          collection: name.toLowerCase(),
+          collection: name,
           type: 'drop'
         }, function(err) {
           if (err != null) {

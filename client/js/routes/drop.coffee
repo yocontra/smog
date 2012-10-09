@@ -10,7 +10,7 @@ define ["smog/server", "smog/notify", "templates/confirm"], (server, notify, tem
 
     $('#confirm-button').click ->
       server.collection
-        collection: name.toLowerCase()
+        collection: name
         type: 'drop'
         (err) ->
           return notify.error "Error dropping collection: #{err}" if err?

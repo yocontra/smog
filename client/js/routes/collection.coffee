@@ -1,9 +1,8 @@
 define ["smog/server", "smog/util", "smog/notify", "templates/collection", "templates/editbar"], (server, util, notify, templ, editbar) ->
   ({name}) ->
-    realname = name.toLowerCase()
     
     server.collection 
-      collection: realname
+      collection: name
       type: 'find'
       query: "{}"
       options:

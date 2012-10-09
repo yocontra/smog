@@ -11,7 +11,7 @@
         q = '{"_id": "' + id + '"}';
       }
       return server.collection({
-        collection: name.toLowerCase(),
+        collection: name,
         type: 'delete',
         query: q
       }, function(err) {

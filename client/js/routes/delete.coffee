@@ -5,7 +5,7 @@ define ["smog/server", "smog/notify"], (server, notify) ->
     else
       q = '{"_id": "' + id + '"}'
     server.collection
-      collection: name.toLowerCase()
+      collection: name
       type: 'delete'
       query: q
       (err) ->

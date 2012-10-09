@@ -16,7 +16,7 @@
       });
       return $('#input-button').click(function() {
         return server.collection({
-          collection: name.toLowerCase(),
+          collection: name,
           type: 'rename',
           query: {
             name: $('#input-text').val()

@@ -11,7 +11,7 @@ define ["smog/server", "templates/input", "smog/notify"], (server, templ, notify
 
     $('#input-button').click ->
       server.collection
-        collection: name.toLowerCase()
+        collection: name
         type: 'rename'
         query: 
           name: $('#input-text').val()

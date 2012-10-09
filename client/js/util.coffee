@@ -3,7 +3,7 @@ define ->
     out = []
     for item in collections when item.name.indexOf('.system.') is -1
       name = item.name.substring item.name.indexOf('.') + 1
-      out.push "#{name.charAt(0).toUpperCase()}#{name.slice(1)}"
+      out.push name#"#{name.charAt(0).toUpperCase()}#{name.slice(1)}"
     return out
 
   filterDocuments: (docs) ->

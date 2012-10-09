@@ -1,13 +1,11 @@
 define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server, notify, editor, templ) ->
   ({name}) ->
-    realname = name.toLowerCase()
-
     $('#content').html templ 
       title: 'Insert'
-      id: realname
+      id: name
       button: 'Insert'
       
-    edit = editor.create "#{realname}-edit-view",
+    edit = editor.create "#{name}-edit-view",
       mode: "javascript"
       wrap: 100
       worker: false
@@ -15,7 +13,7 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
 
     $('#edit-button').click ->
       server.collection 
-        collection: realname
+        collection: name
         type: 'insert'
         query: edit.getText()
         (err) ->

@@ -3,15 +3,14 @@
 
   define(["smog/server", "smog/notify", "smog/editor", "templates/edit"], function(server, notify, editor, templ) {
     return function(_arg) {
-      var edit, name, realname;
+      var edit, name;
       name = _arg.name;
-      realname = name.toLowerCase();
       $('#content').html(templ({
         title: 'Insert',
-        id: realname,
+        id: name,
         button: 'Insert'
       }));
-      edit = editor.create("" + realname + "-edit-view", {
+      edit = editor.create("" + name + "-edit-view", {
         mode: "javascript",
         wrap: 100,
         worker: false,
@@ -19,7 +18,7 @@
       });
       return $('#edit-button').click(function() {
         return server.collection({
-          collection: realname,
+          collection: name,
           type: 'insert',
           query: edit.getText()
         }, function(err) {

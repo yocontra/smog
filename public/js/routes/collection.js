@@ -3,11 +3,10 @@
 
   define(["smog/server", "smog/util", "smog/notify", "templates/collection", "templates/editbar"], function(server, util, notify, templ, editbar) {
     return function(_arg) {
-      var name, realname;
+      var name;
       name = _arg.name;
-      realname = name.toLowerCase();
       return server.collection({
-        collection: realname,
+        collection: name,
         type: 'find',
         query: "{}",
         options: {

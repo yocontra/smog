@@ -12,7 +12,7 @@
             continue;
           }
           name = item.name.substring(item.name.indexOf('.') + 1);
-          out.push("" + (name.charAt(0).toUpperCase()) + (name.slice(1)));
+          out.push(name);
         }
         return out;
       },

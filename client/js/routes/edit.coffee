@@ -1,7 +1,5 @@
 define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server, notify, editor, templ) ->
   ({name, id}) ->
-    realname = name.toLowerCase()
-
     val = $("##{id}-value").text()
 
     $('#content').html templ 
@@ -17,7 +15,7 @@ define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server,
 
     $('#edit-button').click ->
       server.collection 
-        collection: realname
+        collection: name
         type: 'update'
         query: edit.getText()
         (err) ->

@@ -3,9 +3,8 @@
 
   define(["smog/server", "smog/notify", "smog/editor", "templates/edit"], function(server, notify, editor, templ) {
     return function(_arg) {
-      var edit, id, name, realname, val;
+      var edit, id, name, val;
       name = _arg.name, id = _arg.id;
-      realname = name.toLowerCase();
       val = $("#" + id + "-value").text();
       $('#content').html(templ({
         title: "Editing " + id,
@@ -20,7 +19,7 @@
       });
       return $('#edit-button').click(function() {
         return server.collection({
-          collection: realname,
+          collection: name,
           type: 'update',
           query: edit.getText()
         }, function(err) {
