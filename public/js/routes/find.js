@@ -26,10 +26,13 @@
             return notify.error("Error retrieving documents: " + (err.err || err));
           }
           edit.destroy();
-          return $('#content').html(collection({
+          $('#content').html(collection({
             name: name,
             documents: util.filterDocuments(docs)
           }));
+          return $('.dataPreview').click(function() {
+            return $(this).toggleClass("crop");
+          });
         });
       });
     };

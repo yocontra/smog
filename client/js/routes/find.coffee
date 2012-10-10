@@ -22,3 +22,5 @@ define ["smog/server", "smog/util", "smog/notify", "smog/editor", "templates/edi
           $('#content').html collection 
             name: name
             documents: util.filterDocuments docs
+
+          $('.dataPreview').click -> $(this).toggleClass "crop"

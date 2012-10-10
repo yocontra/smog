@@ -15,3 +15,4 @@ define ["smog/server", "smog/util", "smog/notify", "templates/collection", "temp
           name: name
           documents: util.filterDocuments docs
         $('#editbar').html editbar name: name
+        $('.dataPreview').click -> $(this).toggleClass "crop"

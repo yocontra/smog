@@ -23,9 +23,12 @@
           name: name,
           documents: util.filterDocuments(docs)
         }));
-        return $('#editbar').html(editbar({
+        $('#editbar').html(editbar({
           name: name
         }));
+        return $('.dataPreview').click(function() {
+          return $(this).toggleClass("crop");
+        });
       });
     };
   });
