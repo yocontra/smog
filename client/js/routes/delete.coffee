@@ -4,6 +4,7 @@ define ["smog/server", "smog/notify"], (server, notify) ->
       q = '{"_id": new ObjectID("' + id + '")}'
     else
       q = '{"_id": "' + id + '"}'
+    console.log q
     server.collection
       collection: name
       type: 'delete'

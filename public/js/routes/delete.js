@@ -10,6 +10,7 @@
       } else {
         q = '{"_id": "' + id + '"}';
       }
+      console.log(q);
       return server.collection({
         collection: name,
         type: 'delete',

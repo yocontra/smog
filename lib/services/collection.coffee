@@ -7,8 +7,8 @@ prettify = (code) ->
     ish = uglify.uglify.gen_code uglify.parser.parse("(#{code})"), beautify: true, quote_keys: true
     return ish.substring 1, ish.length-2
   catch err
-    console.log code
-    return "Error parsing"
+    console.log code, err
+    return "Error parsing JS #{err.message}"
 
 formatDocuments = (res) ->
   out = []
