@@ -2,9 +2,13 @@
 (function() {
 
   define(["smog/server", "smog/routes", "smog/notify"], function(server, routes, notify) {
+    dermis.use(function(mod, args, next) {
+      return server.ready(function(services) {
+        return next();
+      });
+    });
     return server.ready(function(services) {
-      console.log("Connected - Available services: " + services);
-      return $.routes(routes);
+      return console.log("Connected - Available services: " + services);
     });
   });
 

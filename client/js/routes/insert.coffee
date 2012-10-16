@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server, notify, editor, templ) ->
-  ({name}) ->
+  show: ({name}) ->
     $('#content').html templ 
       title: 'Insert'
       id: name

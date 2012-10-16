@@ -1,5 +1,5 @@
 define ["smog/server", "smog/util", "smog/notify", "templates/sidebar", "templates/admin"], (server, util, notify, sidebar, admin) ->
-  ->
+  show: ->
     server.admin (err, info) ->
       return notify.error "Error grabbing information: #{err.err or err}" if err?
 

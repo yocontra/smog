@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify", "templates/confirm"], (server, notify, templ) ->
-  ({name}) ->
+  show: ({name}) ->
     $('#content').append templ
       title: 'Empty'
       text: 'Emptying a collection will remove every document it contains.\nYou will not be able to recover any data lost.'

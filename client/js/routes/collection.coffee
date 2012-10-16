@@ -1,6 +1,5 @@
 define ["smog/server", "smog/util", "smog/notify", "templates/collection", "templates/editbar"], (server, util, notify, templ, editbar) ->
-  ({name}) ->
-    
+  show: ({name}) ->
     server.collection 
       collection: name
       type: 'find'

@@ -1,5 +1,5 @@
 define ["smog/server", "templates/input", "smog/notify"], (server, templ, notify) ->
-  ->
+  show: ->
     $('#content').append templ
       title: 'New'
       button: 'Create'

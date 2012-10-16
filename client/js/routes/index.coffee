@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify", "templates/connect"], (server, notify, templ) ->
-  ->
+  show: ->
     $('#content').html templ()
     
     $('#connect-modal').modal backdrop: false

@@ -2,34 +2,36 @@
 (function() {
 
   define(["smog/server", "smog/notify", "smog/editor", "templates/edit"], function(server, notify, editor, templ) {
-    return function(_arg) {
-      var edit, name;
-      name = _arg.name;
-      $('#content').html(templ({
-        title: 'Insert',
-        id: name,
-        button: 'Insert'
-      }));
-      edit = editor.create("" + name + "-edit-view", {
-        mode: "javascript",
-        wrap: 100,
-        worker: false,
-        value: "{\r\n\r\n}"
-      });
-      return $('#edit-button').click(function() {
-        return server.collection({
-          collection: name,
-          type: 'insert',
-          query: edit.getText()
-        }, function(err) {
-          if (err != null) {
-            return notify.error("Error inserting document: " + (err.err || err));
-          }
-          edit.destroy();
-          notify.success("Document inserted!");
-          return window.location.hash = "#/collection/" + name;
+    return {
+      show: function(_arg) {
+        var edit, name;
+        name = _arg.name;
+        $('#content').html(templ({
+          title: 'Insert',
+          id: name,
+          button: 'Insert'
+        }));
+        edit = editor.create("" + name + "-edit-view", {
+          mode: "javascript",
+          wrap: 100,
+          worker: false,
+          value: "{\r\n\r\n}"
         });
-      });
+        return $('#edit-button').click(function() {
+          return server.collection({
+            collection: name,
+            type: 'insert',
+            query: edit.getText()
+          }, function(err) {
+            if (err != null) {
+              return notify.error("Error inserting document: " + (err.err || err));
+            }
+            edit.destroy();
+            notify.success("Document inserted!");
+            return window.location.hash = "#/collection/" + name;
+          });
+        });
+      }
     };
   });
 

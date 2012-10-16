@@ -1,34 +1,18 @@
-define ["routes/connect",
- "routes/disconnect",
- "routes/home",
+define ->
+  dermis.route '/'
+  dermis.route '/connect', 'routes/index'
+  dermis.route '/disconnect'
+  dermis.route '/home'
+  dermis.route '/new'
 
- "routes/new",
- "routes/collection",
- "routes/rename",
- "routes/drop",
- "routes/empty",
- "routes/insert",
- "routes/find"
- "routes/mapReduce",
- 
- "routes/edit",
- "routes/delete"], 
- (connect, disconnect, home, nu, collection, rename, drop, empty, insert, find, mapReduce, edit, del) ->
-  '/': connect
-  '/connect': connect
-  '/disconnect': disconnect
-  '/home': home
-
-  # collection actions
-  '/new': nu
-  '/collection/:name': collection
-  '/rename/:name': rename
-  '/drop/:name': drop
-  '/empty/:name': empty
-  '/insert/:name': insert
-  '/find/:name': find
-  '/mapReduce/:name': mapReduce
+  dermis.route '/collection/:name'
+  dermis.route '/rename/:name'
+  dermis.route '/drop/:name'
+  dermis.route '/empty/:name'
+  dermis.route '/insert/:name'
+  dermis.route '/find/:name'
+  dermis.route '/mapReduce/:name'
 
   # document actions
-  '/edit/:name/:id': edit
-  '/delete/:name/:id/:nativeId': del
+  dermis.route '/edit/:name/:id'
+  dermis.route '/delete/:name/:id/:nativeId'

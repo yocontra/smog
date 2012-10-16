@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify", "smog/editor", "templates/edit"], (server, notify, editor, templ) ->
-  ({name, id}) ->
+  show: ({name, id}) ->
     val = $("##{id}-value").text()
 
     $('#content').html templ 

@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify", "templates/confirm"], (server, notify, templ) ->
-  ({name}) ->
+  show: ({name}) ->
     $('#content').append templ
       title: 'Drop'
       text: 'Dropping a collection will completely remove it from the database.\nYou will not be able to recover any data lost.'

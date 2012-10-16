@@ -1,5 +1,5 @@
 define ["smog/server", "smog/notify"], (server, notify) ->
-  ({name, id, nativeId}) ->
+  show: ({name, id, nativeId}) ->
     if nativeId is 'true'
       q = '{"_id": new ObjectID("' + id + '")}'
     else
