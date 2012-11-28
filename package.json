@@ -1,7 +1,7 @@
 {
   "name": "smog",
   "description": "HTML5/Node/WebSocket MongoDB viewer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "http://github.com/wearefractal/smog",
   "repository": "git://github.com/wearefractal/smog.git",
   "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -11,8 +11,8 @@
   "dependencies": {
     "coffee-script": "*",
     "mongoskin": "*",
-    "connect": "*",
-    "vein": "0.4.5",
+    "express": "*",
+    "vein": "0.5.0",
     "async": "*",
     "mongo-ton": ">=0.0.2",
     "ton": ">=0.0.2",
