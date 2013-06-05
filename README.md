@@ -1,3 +1,5 @@
+This project still works but is not being actively developed. If you have any feature requests you will have to send them as a pull request.
+
 ## Information
 
 <table>
