@@ -22,7 +22,7 @@
   "optionalDependencies": {
     "pane": "*"
   },
-  "devDependenciez": {
+  "devDependencies": {
     "mocha": "*",
     "should": "*",
     "jaded": "*",
