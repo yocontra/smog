@@ -1,7 +1,7 @@
 {
   "name": "smog",
   "description": "HTML5/Node/WebSocket MongoDB viewer",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage": "http://github.com/wearefractal/smog",
   "repository": "git://github.com/wearefractal/smog.git",
   "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -10,27 +10,27 @@
   },
   "dependencies": {
     "coffee-script": "^1.7.1",
-    "mongoskin": "^1.3.20-alpha",
+    "mongoskin": "^1.0.0",
     "express": "^3.4.8",
-    "vein": "0.5.0",
-    "async": "^0.2.10",
-    "mongo-ton": ">=0.0.2",
-    "ton": ">=0.0.2",
-    "uglify-js": "1.x.x",
-    "mongodb": "^1.3.23"
+    "vein": "^0.5.5",
+    "async": "^0.9.0",
+    "mongo-ton": "^0.0.3",
+    "ton": "^0.0.2",
+    "uglify-js": "^2.4.15",
+    "mongodb": "^1.4.19"
   },
   "optionalDependencies": {
-    "pane": "*"
+    "pane": "^0.0.10"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "jaded": "*",
-    "less": "*"
+    "jaded": "^0.1.1",
+    "less": "^1.7.5",
+    "mocha": "^2.0.1",
+    "should": "^4.2.1"
   },
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script",
-    "start": "start.coffee"
+    "start": "coffee start.coffee"
   },
   "engines": {
     "node": ">= 0.4.0"
