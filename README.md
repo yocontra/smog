@@ -1,4 +1,6 @@
-This project still works but is not being actively developed. If you have any feature requests you will have to send them as a pull request.
+## Looking for maintainers
+
+Want to maintain this? Post an issue! This project still works fine, but is not being actively developed.
 
 ## Information
 
